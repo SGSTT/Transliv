@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.TipoServicio" table="tipo_servicio" catalog="sgstt" optimistic-lock="version">
+        <id name="idtipoServicio" type="java.lang.Integer">
+            <column name="idtipo_servicio" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoServicio" type="string">
+            <column name="tipo_servicio" length="45" not-null="true" />
+        </property>
+        <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtipo_servicio" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Servicio" />
+        </set>
+    </class>
+</hibernate-mapping>

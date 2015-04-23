@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!-- p:inputMask inputText con un formato establecido -->
+        <p:inputMask value="#{inputMaskController.phoneExt}" mask="(999) 9aa-9*9"
+                     placeholder="(___) ___-____" />
+        <br />
+        <!-- p:inputTextarea-->
+        <p:inputTextarea value="#{bean.propertyName}" counter="display" 
+                         maxlength="20" counterTemplate="{0} characters remaining" />
+        <h:outputText id="display" />
+        <br />
+        <!-- Check Box -->
+        <p:selectBooleanCheckbox  value="#{selectCheckboxController}"/>
+        <br />
+        <p:selectManyCheckbox value="#{selectCheckboxController.selectedCountries}">
+            <f:selectItem itemLabel="Turkey" itemValue="Turkey"/>
+            <f:selectItem itemLabel="Germany" itemValue="Germany"/>
+            <f:selectItem itemLabel="Switzerland" itemValue="Switzerland"/>
+        </p:selectManyCheckbox>
+    </h:body>
+</html>
+

@@ -1,0 +1,21 @@
+.menuButton{
+    margin: 0px 5px 0px 5px;
+    width: 160px;
+}
+.menuButton, .tablaButton, .tablaButton:hover{
+  color: #FFFFFF;
+  font-family: "Century Gothic";
+  font-size: 11pt;
+  background-color: #2F2F2F;
+  border-color: #2F2F2F;  
+}
+.menuButton:hover{
+  color: #DDA222;  
+}
+.tablaButton{
+    margin-left: 10px;
+    height: 33px;
+}
+.opc:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.DetalleServicio" table="detalle_servicio" catalog="sgstt" optimistic-lock="version">
+        <id name="iddetalleServicio" type="string">
+            <column name="iddetalle_servicio" length="4" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="trasladista" class="modelos.Trasladista" fetch="select">
+            <column name="idtrasladista" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vuelo" class="modelos.Vuelo" fetch="select">
+            <column name="idvuelo" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="hora" type="time">
+            <column name="hora" length="8" not-null="true" />
+        </property>
+        <property name="origen" type="string">
+            <column name="origen" length="45" not-null="true" />
+        </property>
+        <property name="destino" type="string">
+            <column name="destino" length="45" not-null="true" />
+        </property>
+        <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="iddetalle_servicio" length="4" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Servicio" />
+        </set>
+    </class>
+</hibernate-mapping>

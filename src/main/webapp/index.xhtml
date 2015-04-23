@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>SGSTT</title>        
+        <h:outputStylesheet name="css/index.css" />
+    </h:head>
+    <h:body>
+            <div id="header">
+                <div id="divLogo">
+                    <h:link class="menus" outcome="pagina">
+                        <p:graphicImage id="logo" value="/resources/images/logo.png" />
+                    </h:link>
+                </div>
+                <div id="nav">
+                    <h:form id="menuBar">
+                        <h:link class="menus">
+                            <p:graphicImage id="menu_home" value="/resources/images/menu/home.png" />
+                        </h:link>
+                        <h:link class="menus" >
+                            <p:graphicImage id="menu_nosotros" value="/resources/images/menu/nosotros1.png"
+                                            onmouseover="this.src='/resources/images/menu/nosotros1_s.png'"
+                                            onmouseout="this.src='/resources/images/menu/nosotros1.png'" />
+                        </h:link>
+                        <h:link class="menus" >
+                            <p:graphicImage id="menu_historia" value="/resources/images/menu/historia1.png" 
+                                            onmouseover="this.src='/resources/images/menu/historia1_s.png'"
+                                            onmouseout="this.src='/resources/images/menu/historia1.png'" />
+                        </h:link>
+                        <h:link class="menus" >
+                            <p:graphicImage id="menu_flota" value="/resources/images/menu/flota1.png"
+                                            onmouseover="this.src='/resources/images/menu/flota1_s.png'"
+                                            onmouseout="this.src='/resources/images/menu/flota1.png'" />
+                        </h:link>
+                        <h:link class="menus" >
+                            <p:graphicImage id="menu_contacto" value="/resources/images/menu/contacto1.png"
+                                            onmouseover="this.src='/resources/images/menu/contacto1_s.png'"
+                                            onmouseout="this.src='/resources/images/menu/contacto1.png'" />
+                        </h:link>
+                        <h:link class="menus" outcome="ingresar">
+                            <p:graphicImage id="menu_ingresar" value="/resources/images/menu/ingresar1.png"
+                                            onmouseover="this.src='/resources/images/menu/ingresar1_s.png'"
+                                            onmouseout="this.src='/resources/images/menu/ingresar1.png'" />
+                        </h:link>
+                    </h:form>
+                </div>
+            </div>            
+            <div id="content">
+                <h:form>
+                    <p:outputLabel value="Nombre: " />
+                    <h:inputText size="15" class="text-success" />
+                    <br /><br />
+                    <p:outputLabel value="Apellidos: " />
+                    <p:inputText size="20" placeholder="Texto"/>
+                </h:form>
+            </div>                        
+    </h:body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.VehiculoHasServicio" table="vehiculo_has_servicio" catalog="sgstt" optimistic-lock="version">
+        <composite-id name="id" class="modelos.VehiculoHasServicioId">
+            <key-property name="vehiculoIdvehiculo" type="int">
+                <column name="vehiculo_idvehiculo" />
+            </key-property>
+            <key-property name="servicioIdservicio" type="int">
+                <column name="servicio_idservicio" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="servicio" class="modelos.Servicio" update="false" insert="false" fetch="select">
+            <column name="servicio_idservicio" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vehiculo" class="modelos.Vehiculo" update="false" insert="false" fetch="select">
+            <column name="vehiculo_idvehiculo" not-null="true" />
+        </many-to-one>
+        <property name="observaciones" type="string">
+            <column name="Observaciones" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

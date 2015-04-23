@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Vehiculo" table="vehiculo" catalog="sgstt" optimistic-lock="version">
+        <id name="idvehiculo" type="java.lang.Integer">
+            <column name="idvehiculo" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" not-null="true" />
+        </property>
+        <property name="placa" type="string">
+            <column name="placa" length="45" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="13" not-null="true" />
+        </property>
+        <set name="vehiculoHasServicios" table="vehiculo_has_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="vehiculo_idvehiculo" not-null="true" />
+            </key>
+            <one-to-many class="modelos.VehiculoHasServicio" />
+        </set>
+        <set name="vehiculoHasChofers" table="vehiculo_has_chofer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dvehiculo" not-null="true" />
+            </key>
+            <one-to-many class="modelos.VehiculoHasChofer" />
+        </set>
+    </class>
+</hibernate-mapping>

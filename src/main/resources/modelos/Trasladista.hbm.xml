@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Trasladista" table="trasladista" catalog="sgstt" optimistic-lock="version">
+        <id name="idtrasladista" type="java.lang.Integer">
+            <column name="idtrasladista" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="60" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="80" not-null="true" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="8" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="200" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="100" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="9" not-null="true" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="11" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="8" not-null="true" />
+        </property>
+        <property name="codUbigeo" type="int">
+            <column name="codUbigeo" not-null="true" />
+        </property>
+        <set name="detalleServicios" table="detalle_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtrasladista" not-null="true" />
+            </key>
+            <one-to-many class="modelos.DetalleServicio" />
+        </set>
+    </class>
+</hibernate-mapping>

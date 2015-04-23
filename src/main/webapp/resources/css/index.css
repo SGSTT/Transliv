@@ -1,0 +1,39 @@
+body{    
+    background-color: #000000;
+    display: block;
+    overflow-x: hidden;
+}
+#todoDiv{
+    background-color: #F3F3F3;
+    margin: 0px -17px 0px -7px;
+    height: 100%;    
+}
+#header{
+    width: 80%;
+    padding-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#divLogo{
+    width: auto;
+    float: left;
+}
+#nav{
+    height: 50px;    
+    padding: 7px 60px 10px 400px;
+}
+#separador{
+    background-color: #000000;
+    height: 10px;
+    margin: 0px -17px 0px -17px;
+}
+#content{    
+    width: 1000px;
+    height: 460px;
+    margin: 100px auto 0 auto;
+}
+.menus{
+    text-decoration: none;
+}

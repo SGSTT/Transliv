@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="inicio.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="contenido">        
+        <div id="fCliente" class="tablaL">
+            <h:form>
+                <table class="tabla-form">
+                    <tr>
+                        <th>Cliente:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default">
+                                <f:selectItem itemLabel="--- Cliente ---"/>
+                                <f:selectItems/>                                
+                            </h:selectOneMenu>
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus opc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tipo de Cliente:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default" value="#{faltaalgo}">
+                                <f:selectItem itemLabel="--- Tipo de Cliente ---"/>
+                                <f:selectItems/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Vuelo:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default">
+                                <f:selectItem itemLabel="--- Vuelo ---"/>
+                                <f:selectItems/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </div>        
+        <div id="fTransporte" class="tablaR">
+            <h:form>
+                <table class="tabla-form">
+                    <tr>
+                        <th>Veh&iacute;culo:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default">
+                                <f:selectItem itemLabel="--- Veh&iacute;culo ---"/>
+                                <f:selectItems/>
+                            </h:selectOneMenu>                            
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
+                        </td>                            
+                    </tr>
+                    <tr>
+                        <th>Conductor:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default">
+                                <f:selectItem itemLabel="--- Conductor ---"/>
+                                <f:selectItems/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Trasladista:</th>
+                        <td>
+                            <h:selectOneMenu class="btn btn-default">
+                                <f:selectItem itemLabel="--- Trasladista ---"/>
+                                <f:selectItems/>
+                            </h:selectOneMenu>                            
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
+                        </td>
+                    </tr>
+                </table>                
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

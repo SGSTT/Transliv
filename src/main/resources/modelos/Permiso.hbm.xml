@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Permiso" table="permiso" catalog="sgstt" optimistic-lock="version">
+        <composite-id name="id" class="modelos.PermisoId">
+            <key-property name="idpermiso" type="int">
+                <column name="idpermiso" />
+            </key-property>
+            <key-property name="perfilIdperfil" type="int">
+                <column name="perfil_idperfil" />
+            </key-property>
+            <key-property name="moduloIdmodulo" type="int">
+                <column name="modulo_idmodulo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="modulo" class="modelos.Modulo" update="false" insert="false" fetch="select">
+            <column name="modulo_idmodulo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perfil" class="modelos.Perfil" update="false" insert="false" fetch="select">
+            <column name="perfil_idperfil" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Ubigeo" table="ubigeo" catalog="sgstt" optimistic-lock="version">
+        <id name="cdUbigeo" type="java.lang.Integer">
+            <column name="Cd_Ubigeo" />
+            <generator class="identity" />
+        </id>
+        <property name="codDep" type="string">
+            <column name="CodDep" length="2" />
+        </property>
+        <property name="codProv" type="string">
+            <column name="CodProv" length="2" />
+        </property>
+        <property name="codDst" type="string">
+            <column name="CodDst" length="2" />
+        </property>
+        <property name="region" type="string">
+            <column name="Region" length="100" />
+        </property>
+        <property name="prov" type="string">
+            <column name="Prov" length="100" />
+        </property>
+        <property name="dst" type="string">
+            <column name="Dst" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Usuario" table="usuario" catalog="sgstt" optimistic-lock="version">
+        <composite-id name="id" class="modelos.UsuarioId">
+            <key-property name="idusuario" type="int">
+                <column name="idusuario" />
+            </key-property>
+            <key-property name="idRol" type="int">
+                <column name="idRol" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perfil" class="modelos.Perfil" update="false" insert="false" fetch="select">
+            <column name="idRol" not-null="true" />
+        </many-to-one>
+        <property name="nick" type="string">
+            <column name="nick" length="20" not-null="true" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" length="16" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="60" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="80" not-null="true" />
+        </property>
+        <property name="estado" type="byte">
+            <column name="estado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
