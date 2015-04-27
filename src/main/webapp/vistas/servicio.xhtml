@@ -22,9 +22,9 @@
                     <tr>
                         <th>Tipo de Cliente:</th>
                         <td>
-                            <h:selectOneMenu class="btn btn-default" value="#{faltaalgo}">
+                            <h:selectOneMenu class="btn btn-default">
                                 <f:selectItem itemLabel="--- Tipo de Cliente ---"/>
-                                <f:selectItems/>
+                                <f:selectItems value="" />
                             </h:selectOneMenu>
                         </td>
                     </tr>
@@ -43,7 +43,7 @@
                     </tr>
                 </table>
             </h:form>
-        </div>        
+        </div>
         <div id="fTransporte" class="tablaR">
             <h:form>
                 <table class="tabla-form">
@@ -53,7 +53,7 @@
                             <h:selectOneMenu class="btn btn-default">
                                 <f:selectItem itemLabel="--- Veh&iacute;culo ---"/>
                                 <f:selectItems/>
-                            </h:selectOneMenu>                            
+                            </h:selectOneMenu>
                             &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
                         </td>                            
                     </tr>
@@ -76,11 +76,11 @@
                             <h:selectOneMenu class="btn btn-default">
                                 <f:selectItem itemLabel="--- Trasladista ---"/>
                                 <f:selectItems/>
-                            </h:selectOneMenu>                            
+                            </h:selectOneMenu>
                             &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
                         </td>
                     </tr>
-                </table>                
+                </table>
             </h:form>
         </div>
     </ui:define>
