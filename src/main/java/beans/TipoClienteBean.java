@@ -5,7 +5,7 @@ package beans;
 import daos.TipoClienteDao;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 import modelos.TipoCliente;
@@ -13,16 +13,19 @@ import modelos.TipoCliente;
 @ManagedBean
 @RequestScoped
 public class TipoClienteBean {
-    private List<SelectItem> listTipo;
+    private List<SelectItem> listaTipoCliente;
     
-    public List<SelectItem> getListTipo(){
-        this.listTipo = new ArrayList<>();
+    public TipoClienteBean() {  
+    }
+    
+    public List<SelectItem> getListaTipoCliente(){
+        this.listaTipoCliente = new ArrayList<>();
         TipoClienteDao tipoClienteDao = new TipoClienteDao();
-        List<TipoCliente> tipos = tipoClienteDao.selectTipo();
+        List<TipoCliente> tipos = tipoClienteDao.selectedTipo();
         for(TipoCliente tipo : tipos){
-            SelectItem selectItem = new SelectItem(tipo.getIdtipoCliente(), tipo.getDescripcion());
-            this.listTipo.add(selectItem);
+            SelectItem selectItem = new SelectItem(tipo.getIdtipoCliente() ,tipo.getDescripcion());
+            this.listaTipoCliente.add(selectItem);
         }
-        return listTipo;
+        return listaTipoCliente;
     }
 }

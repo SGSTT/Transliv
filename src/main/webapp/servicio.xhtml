@@ -14,7 +14,7 @@
                         <td>
                             <h:selectOneMenu class="btn btn-default">
                                 <f:selectItem itemLabel="--- Cliente ---"/>
-                                <f:selectItems/>                                
+                                <f:selectItems/>
                             </h:selectOneMenu>
                             &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus opc"/>
                         </td>
@@ -22,9 +22,9 @@
                     <tr>
                         <th>Tipo de Cliente:</th>
                         <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Tipo de Cliente ---"/>
-                                <f:selectItems value="" />
+                            <h:selectOneMenu class="btn btn-default" value="#{clienteBean.selectedCliente.tipoCliente.idtipoCliente}">
+                                <f:selectItem itemLabel="--- Tipo de Cliente ---" itemValue=""/>
+                                <f:selectItems value="#{tipoClienteBean.listaTipoCliente}" />
                             </h:selectOneMenu>
                         </td>
                     </tr>
