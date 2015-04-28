@@ -2,23 +2,23 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="sgstt"/>
-  <table-filter match-name="vuelo"/>
+  <table-filter match-name="ubigeo"/>
+  <table-filter match-name="pax"/>
   <table-filter match-name="vehiculo_has_chofer"/>
-  <table-filter match-name="aerolinea"/>
+  <table-filter match-name="servicio"/>
   <table-filter match-name="tipo_cliente"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="igv"/>
+  <table-filter match-name="vehiculo_has_servicio"/>
+  <table-filter match-name="permiso"/>
   <table-filter match-name="trasladista"/>
   <table-filter match-name="detalle_servicio"/>
-  <table-filter match-name="ubigeo"/>
-  <table-filter match-name="perfil"/>
   <table-filter match-name="modulo"/>
-  <table-filter match-name="tipo_servicio"/>
-  <table-filter match-name="permiso"/>
-  <table-filter match-name="usuario"/>
-  <table-filter match-name="vehiculo_has_servicio"/>
-  <table-filter match-name="pax"/>
-  <table-filter match-name="cliente"/>
-  <table-filter match-name="igv"/>
-  <table-filter match-name="chofer"/>
   <table-filter match-name="vehiculo"/>
-  <table-filter match-name="servicio"/>
+  <table-filter match-name="aerolinea"/>
+  <table-filter match-name="tipo_servicio"/>
+  <table-filter match-name="chofer"/>
+  <table-filter match-name="vuelo"/>
+  <table-filter match-name="perfil"/>
+  <table-filter match-name="cliente"/>
 </hibernate-reverse-engineering>

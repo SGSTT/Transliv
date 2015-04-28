@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.VehiculoHasChofer" table="vehiculo_has_chofer" catalog="sgstt" optimistic-lock="version">
         <composite-id name="id" class="modelos.VehiculoHasChoferId">

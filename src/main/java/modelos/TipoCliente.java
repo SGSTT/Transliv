@@ -1,5 +1,5 @@
 package modelos;
-// Generated 16/04/2015 11:54:20 AM by Hibernate Tools 4.3.1
+// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -28,8 +28,6 @@ public class TipoCliente  implements java.io.Serializable {
      private Set clientes = new HashSet(0);
 
     public TipoCliente() {
-        this.idtipoCliente = 0;
-        this.descripcion = "";        
     }
 
     public TipoCliente(String descripcion, Set clientes) {
@@ -67,4 +65,10 @@ public class TipoCliente  implements java.io.Serializable {
     public void setClientes(Set clientes) {
         this.clientes = clientes;
     }
+
+
+
+
 }
+
+
