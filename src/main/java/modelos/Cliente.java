@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,7 +29,6 @@ public class Cliente  implements java.io.Serializable {
      private Integer idTipoDocumento;
      private Integer numeroDocumento;
      private String direccion;
-     private Integer idEstado;
      private String correo;
      private String idUbigeo;
      private Integer idPax;
@@ -46,14 +45,13 @@ public class Cliente  implements java.io.Serializable {
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
     }
-    public Cliente(int idCliente, TipoCliente tipoCliente, String nombre, Integer idTipoDocumento, Integer numeroDocumento, String direccion, Integer idEstado, String correo, String idUbigeo, Integer idPax, Set personaNaturals, Set agencias, Set files, Set personaJuridicas) {
+    public Cliente(int idCliente, TipoCliente tipoCliente, String nombre, Integer idTipoDocumento, Integer numeroDocumento, String direccion, String correo, String idUbigeo, Integer idPax, Set personaNaturals, Set agencias, Set files, Set personaJuridicas) {
        this.idCliente = idCliente;
        this.tipoCliente = tipoCliente;
        this.nombre = nombre;
        this.idTipoDocumento = idTipoDocumento;
        this.numeroDocumento = numeroDocumento;
        this.direccion = direccion;
-       this.idEstado = idEstado;
        this.correo = correo;
        this.idUbigeo = idUbigeo;
        this.idPax = idPax;
@@ -123,16 +121,6 @@ public class Cliente  implements java.io.Serializable {
     
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    
-    @Column(name="idEstado")
-    public Integer getIdEstado() {
-        return this.idEstado;
-    }
-    
-    public void setIdEstado(Integer idEstado) {
-        this.idEstado = idEstado;
     }
 
     

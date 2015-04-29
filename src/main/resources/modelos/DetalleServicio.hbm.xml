@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.DetalleServicio" table="detalle_servicio" catalog="sgstt" optimistic-lock="version">
-        <id name="iddetalleServicio" type="string">
-            <column name="iddetalle_servicio" length="45" />
-            <generator class="assigned" />
+        <id name="idServicio" type="int">
+            <column name="id_servicio" />
+            <generator class="foreign">
+                <param name="property">servicio</param>
+            </generator>
         </id>
         <many-to-one name="aerolinea" class="modelos.Aerolinea" fetch="select">
             <column name="idaerolinea" not-null="true" />
         </many-to-one>
-        <many-to-one name="cobro" class="modelos.Cobro" fetch="select">
-            <column name="idcobro" not-null="true" />
-        </many-to-one>
         <many-to-one name="estadoServicio" class="modelos.EstadoServicio" fetch="select">
             <column name="idestado_servicio" not-null="true" />
         </many-to-one>
+        <one-to-one name="servicio" class="modelos.Servicio" constrained="true"></one-to-one>
         <many-to-one name="trasladista" class="modelos.Trasladista" fetch="select">
             <column name="idtrasladista" not-null="true" />
         </many-to-one>
+        <one-to-one name="cobro" class="modelos.Cobro"></one-to-one>
     </class>
 </hibernate-mapping>

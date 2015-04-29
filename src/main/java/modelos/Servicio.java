@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,25 +29,31 @@ public class Servicio  implements java.io.Serializable {
      private Integer idservicio;
      private Tarifa tarifa;
      private TipoServicio tipoServicio;
-     private String descripcion;
      private Integer numeroPersonas;
+     private String hora;
+     private String fecha;
      private Set vehiculoHasServicios = new HashSet(0);
+     private DetalleServicio detalleServicio;
      private Set files = new HashSet(0);
 
     public Servicio() {
     }
 
 	
-    public Servicio(Tarifa tarifa, TipoServicio tipoServicio) {
+    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, String hora, String fecha) {
         this.tarifa = tarifa;
         this.tipoServicio = tipoServicio;
+        this.hora = hora;
+        this.fecha = fecha;
     }
-    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, String descripcion, Integer numeroPersonas, Set vehiculoHasServicios, Set files) {
+    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, Integer numeroPersonas, String hora, String fecha, Set vehiculoHasServicios, DetalleServicio detalleServicio, Set files) {
        this.tarifa = tarifa;
        this.tipoServicio = tipoServicio;
-       this.descripcion = descripcion;
        this.numeroPersonas = numeroPersonas;
+       this.hora = hora;
+       this.fecha = fecha;
        this.vehiculoHasServicios = vehiculoHasServicios;
+       this.detalleServicio = detalleServicio;
        this.files = files;
     }
    
@@ -83,16 +90,6 @@ public class Servicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="descripcion", length=45)
-    public String getDescripcion() {
-        return this.descripcion;
-    }
-    
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    
     @Column(name="numeroPersonas")
     public Integer getNumeroPersonas() {
         return this.numeroPersonas;
@@ -102,6 +99,26 @@ public class Servicio  implements java.io.Serializable {
         this.numeroPersonas = numeroPersonas;
     }
 
+    
+    @Column(name="hora", nullable=false, length=45)
+    public String getHora() {
+        return this.hora;
+    }
+    
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    
+    @Column(name="fecha", nullable=false, length=45)
+    public String getFecha() {
+        return this.fecha;
+    }
+    
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
 @OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")
     public Set getVehiculoHasServicios() {
         return this.vehiculoHasServicios;
@@ -109,6 +126,15 @@ public class Servicio  implements java.io.Serializable {
     
     public void setVehiculoHasServicios(Set vehiculoHasServicios) {
         this.vehiculoHasServicios = vehiculoHasServicios;
+    }
+
+@OneToOne(fetch=FetchType.LAZY, mappedBy="servicio")
+    public DetalleServicio getDetalleServicio() {
+        return this.detalleServicio;
+    }
+    
+    public void setDetalleServicio(DetalleServicio detalleServicio) {
+        this.detalleServicio = detalleServicio;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")

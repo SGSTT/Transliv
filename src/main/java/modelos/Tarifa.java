@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -22,21 +22,28 @@ public class Tarifa  implements java.io.Serializable {
 
 
      private int idTarifa;
-     private String precio;
      private String tipoMoneda;
+     private Integer idVehiculo;
+     private String ruta;
+     private float precio;
      private Set servicios = new HashSet(0);
 
     public Tarifa() {
     }
 
 	
-    public Tarifa(int idTarifa) {
+    public Tarifa(int idTarifa, String tipoMoneda, String ruta, float precio) {
         this.idTarifa = idTarifa;
+        this.tipoMoneda = tipoMoneda;
+        this.ruta = ruta;
+        this.precio = precio;
     }
-    public Tarifa(int idTarifa, String precio, String tipoMoneda, Set servicios) {
+    public Tarifa(int idTarifa, String tipoMoneda, Integer idVehiculo, String ruta, float precio, Set servicios) {
        this.idTarifa = idTarifa;
-       this.precio = precio;
        this.tipoMoneda = tipoMoneda;
+       this.idVehiculo = idVehiculo;
+       this.ruta = ruta;
+       this.precio = precio;
        this.servicios = servicios;
     }
    
@@ -53,23 +60,43 @@ public class Tarifa  implements java.io.Serializable {
     }
 
     
-    @Column(name="Precio", length=45)
-    public String getPrecio() {
-        return this.precio;
-    }
-    
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
-
-    
-    @Column(name="tipoMoneda", length=45)
+    @Column(name="tipoMoneda", nullable=false, length=45)
     public String getTipoMoneda() {
         return this.tipoMoneda;
     }
     
     public void setTipoMoneda(String tipoMoneda) {
         this.tipoMoneda = tipoMoneda;
+    }
+
+    
+    @Column(name="idVehiculo")
+    public Integer getIdVehiculo() {
+        return this.idVehiculo;
+    }
+    
+    public void setIdVehiculo(Integer idVehiculo) {
+        this.idVehiculo = idVehiculo;
+    }
+
+    
+    @Column(name="Ruta", nullable=false, length=65535)
+    public String getRuta() {
+        return this.ruta;
+    }
+    
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    
+    @Column(name="Precio", nullable=false, precision=12, scale=0)
+    public float getPrecio() {
+        return this.precio;
+    }
+    
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="tarifa")

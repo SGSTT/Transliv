@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Servicio" table="servicio" catalog="sgstt" optimistic-lock="version">
         <id name="idservicio" type="java.lang.Integer">
@@ -14,11 +14,14 @@
         <many-to-one name="tipoServicio" class="modelos.TipoServicio" fetch="select">
             <column name="idtipo_servicio" not-null="true" />
         </many-to-one>
-        <property name="descripcion" type="string">
-            <column name="descripcion" length="45" />
-        </property>
         <property name="numeroPersonas" type="java.lang.Integer">
             <column name="numeroPersonas" />
+        </property>
+        <property name="hora" type="string">
+            <column name="hora" length="45" not-null="true" />
+        </property>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" not-null="true" />
         </property>
         <set name="vehiculoHasServicios" table="vehiculo_has_servicio" inverse="true" lazy="true" fetch="select">
             <key>
@@ -26,6 +29,7 @@
             </key>
             <one-to-many class="modelos.VehiculoHasServicio" />
         </set>
+        <one-to-one name="detalleServicio" class="modelos.DetalleServicio"></one-to-one>
         <set name="files" table="file" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idservicio" not-null="true" />

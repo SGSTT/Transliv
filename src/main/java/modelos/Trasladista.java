@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,14 +31,14 @@ public class Trasladista  implements java.io.Serializable {
      private String correo;
      private String telefono;
      private String celular;
-     private Byte estado;
+     private String estado;
      private Integer codUbigeo;
      private Set detalleServicios = new HashSet(0);
 
     public Trasladista() {
     }
 
-    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, Byte estado, Integer codUbigeo, Set detalleServicios) {
+    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, String estado, Integer codUbigeo, Set detalleServicios) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
@@ -134,12 +134,12 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="estado")
-    public Byte getEstado() {
+    @Column(name="estado", length=20)
+    public String getEstado() {
         return this.estado;
     }
     
-    public void setEstado(Byte estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

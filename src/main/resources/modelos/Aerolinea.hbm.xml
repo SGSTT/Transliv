@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Aerolinea" table="aerolinea" catalog="sgstt" optimistic-lock="version">
         <id name="idaerolinea" type="java.lang.Integer">
@@ -19,7 +19,7 @@
         </set>
         <set name="vuelos" table="vuelo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="aerolinea_idaerolinea" not-null="true" />
+                <column name="idaerolinea" not-null="true" />
             </key>
             <one-to-many class="modelos.Vuelo" />
         </set>

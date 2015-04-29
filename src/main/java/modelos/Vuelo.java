@@ -1,13 +1,13 @@
 package modelos;
-// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
 
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class Vuelo  implements java.io.Serializable {
 
 
-     private VueloId id;
+     private Integer idvuelo;
      private Aerolinea aerolinea;
      private String origen;
      private String destino;
@@ -32,34 +32,30 @@ public class Vuelo  implements java.io.Serializable {
     }
 
 	
-    public Vuelo(VueloId id, Aerolinea aerolinea) {
-        this.id = id;
+    public Vuelo(Aerolinea aerolinea) {
         this.aerolinea = aerolinea;
     }
-    public Vuelo(VueloId id, Aerolinea aerolinea, String origen, String destino, String horario) {
-       this.id = id;
+    public Vuelo(Aerolinea aerolinea, String origen, String destino, String horario) {
        this.aerolinea = aerolinea;
        this.origen = origen;
        this.destino = destino;
        this.horario = horario;
     }
    
-     @EmbeddedId
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="idvuelo", column=@Column(name="idvuelo", nullable=false) ), 
-        @AttributeOverride(name="aerolineaIdaerolinea", column=@Column(name="aerolinea_idaerolinea", nullable=false) ) } )
-    public VueloId getId() {
-        return this.id;
+    @Column(name="idvuelo", unique=true, nullable=false)
+    public Integer getIdvuelo() {
+        return this.idvuelo;
     }
     
-    public void setId(VueloId id) {
-        this.id = id;
+    public void setIdvuelo(Integer idvuelo) {
+        this.idvuelo = idvuelo;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="aerolinea_idaerolinea", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idaerolinea", nullable=false)
     public Aerolinea getAerolinea() {
         return this.aerolinea;
     }
