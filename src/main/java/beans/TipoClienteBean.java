@@ -23,7 +23,7 @@ public class TipoClienteBean {
         TipoClienteDao tipoClienteDao = new TipoClienteDao();
         List<TipoCliente> tipos = tipoClienteDao.selectedTipo();
         for(TipoCliente tipo : tipos){
-            SelectItem selectItem = new SelectItem(tipo.getIdtipoCliente() ,tipo.getDescripcion());
+            SelectItem selectItem = new SelectItem(tipo.getIdTipoCliente() ,tipo.getTipoCliente());
             this.listaTipoCliente.add(selectItem);
         }
         return listaTipoCliente;

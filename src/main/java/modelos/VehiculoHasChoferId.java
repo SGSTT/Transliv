@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -12,26 +12,26 @@ import javax.persistence.Embeddable;
 public class VehiculoHasChoferId  implements java.io.Serializable {
 
 
-     private int dvehiculo;
+     private int idvehiculo;
      private int idchofer;
 
     public VehiculoHasChoferId() {
     }
 
-    public VehiculoHasChoferId(int dvehiculo, int idchofer) {
-       this.dvehiculo = dvehiculo;
+    public VehiculoHasChoferId(int idvehiculo, int idchofer) {
+       this.idvehiculo = idvehiculo;
        this.idchofer = idchofer;
     }
    
 
 
-    @Column(name="dvehiculo", nullable=false)
-    public int getDvehiculo() {
-        return this.dvehiculo;
+    @Column(name="idvehiculo", nullable=false)
+    public int getIdvehiculo() {
+        return this.idvehiculo;
     }
     
-    public void setDvehiculo(int dvehiculo) {
-        this.dvehiculo = dvehiculo;
+    public void setIdvehiculo(int idvehiculo) {
+        this.idvehiculo = idvehiculo;
     }
 
 
@@ -51,14 +51,14 @@ public class VehiculoHasChoferId  implements java.io.Serializable {
 		 if ( !(other instanceof VehiculoHasChoferId) ) return false;
 		 VehiculoHasChoferId castOther = ( VehiculoHasChoferId ) other; 
          
-		 return (this.getDvehiculo()==castOther.getDvehiculo())
+		 return (this.getIdvehiculo()==castOther.getIdvehiculo())
  && (this.getIdchofer()==castOther.getIdchofer());
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + this.getDvehiculo();
+         result = 37 * result + this.getIdvehiculo();
          result = 37 * result + this.getIdchofer();
          return result;
    }   

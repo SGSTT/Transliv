@@ -19,3 +19,16 @@
 .opc:hover{
     cursor: pointer;
 }
+.border{
+    border-width: 1px;
+    border-style: solid;
+}
+table tr td{
+    padding: 5px 15px 5px 5px;
+}
+.contenedor{
+    padding: 15px;
+}
+.centrar{
+    vertical-align: middle;
+}

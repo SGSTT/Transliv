@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -7,8 +7,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,38 +21,43 @@ import javax.persistence.Table;
 public class TipoCliente  implements java.io.Serializable {
 
 
-     private Integer idtipoCliente;
-     private String descripcion;
+     private int idTipoCliente;
+     private String tipoCliente;
      private Set clientes = new HashSet(0);
 
     public TipoCliente() {
     }
 
-    public TipoCliente(String descripcion, Set clientes) {
-       this.descripcion = descripcion;
+	
+    public TipoCliente(int idTipoCliente) {
+        this.idTipoCliente = idTipoCliente;
+    }
+    public TipoCliente(int idTipoCliente, String tipoCliente, Set clientes) {
+       this.idTipoCliente = idTipoCliente;
+       this.tipoCliente = tipoCliente;
        this.clientes = clientes;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id 
 
     
-    @Column(name="idtipo_cliente", unique=true, nullable=false)
-    public Integer getIdtipoCliente() {
-        return this.idtipoCliente;
+    @Column(name="id_TipoCliente", unique=true, nullable=false)
+    public int getIdTipoCliente() {
+        return this.idTipoCliente;
     }
     
-    public void setIdtipoCliente(Integer idtipoCliente) {
-        this.idtipoCliente = idtipoCliente;
+    public void setIdTipoCliente(int idTipoCliente) {
+        this.idTipoCliente = idTipoCliente;
     }
 
     
-    @Column(name="descripcion", length=45)
-    public String getDescripcion() {
-        return this.descripcion;
+    @Column(name="Tipo_Cliente", length=45)
+    public String getTipoCliente() {
+        return this.tipoCliente;
     }
     
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="tipoCliente")

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.PersonaNatural" table="persona_natural" catalog="sgstt" optimistic-lock="version">
+        <id name="cliente" type="string">
+            <column name="Cliente" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente_1" class="modelos.Cliente" fetch="select">
+            <column name="Cliente_idCliente" not-null="true" />
+        </many-to-one>
+        <property name="apellidos" type="int">
+            <column name="Apellidos" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,9 +26,10 @@ public class Vehiculo  implements java.io.Serializable {
 
 
      private Integer idvehiculo;
+     private EstadoVehiculo estadoVehiculo;
+     private Marca marca;
      private String descripcion;
      private String placa;
-     private String estado;
      private Set vehiculoHasServicios = new HashSet(0);
      private Set vehiculoHasChofers = new HashSet(0);
 
@@ -34,15 +37,15 @@ public class Vehiculo  implements java.io.Serializable {
     }
 
 	
-    public Vehiculo(String descripcion, String placa, String estado) {
-        this.descripcion = descripcion;
-        this.placa = placa;
-        this.estado = estado;
+    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca) {
+        this.estadoVehiculo = estadoVehiculo;
+        this.marca = marca;
     }
-    public Vehiculo(String descripcion, String placa, String estado, Set vehiculoHasServicios, Set vehiculoHasChofers) {
+    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca, String descripcion, String placa, Set vehiculoHasServicios, Set vehiculoHasChofers) {
+       this.estadoVehiculo = estadoVehiculo;
+       this.marca = marca;
        this.descripcion = descripcion;
        this.placa = placa;
-       this.estado = estado;
        this.vehiculoHasServicios = vehiculoHasServicios;
        this.vehiculoHasChofers = vehiculoHasChofers;
     }
@@ -59,8 +62,28 @@ public class Vehiculo  implements java.io.Serializable {
         this.idvehiculo = idvehiculo;
     }
 
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="idestado_vehiculo", nullable=false)
+    public EstadoVehiculo getEstadoVehiculo() {
+        return this.estadoVehiculo;
+    }
     
-    @Column(name="descripcion", nullable=false, length=45)
+    public void setEstadoVehiculo(EstadoVehiculo estadoVehiculo) {
+        this.estadoVehiculo = estadoVehiculo;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="idmarca", nullable=false)
+    public Marca getMarca() {
+        return this.marca;
+    }
+    
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
+    
+    @Column(name="descripcion", length=45)
     public String getDescripcion() {
         return this.descripcion;
     }
@@ -70,23 +93,13 @@ public class Vehiculo  implements java.io.Serializable {
     }
 
     
-    @Column(name="placa", nullable=false, length=45)
+    @Column(name="placa", length=45)
     public String getPlaca() {
         return this.placa;
     }
     
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-
-    
-    @Column(name="estado", nullable=false, length=13)
-    public String getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vehiculo")

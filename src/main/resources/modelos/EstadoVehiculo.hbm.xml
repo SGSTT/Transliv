@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.EstadoVehiculo" table="estado_vehiculo" catalog="sgstt" optimistic-lock="version">
+        <id name="idestadoVehiculo" type="int">
+            <column name="idestado_vehiculo" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <set name="vehiculos" table="vehiculo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestado_vehiculo" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Vehiculo" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.VehiculoHasServicio" table="vehiculo_has_servicio" catalog="sgstt" optimistic-lock="version">
         <composite-id name="id" class="modelos.VehiculoHasServicioId">
-            <key-property name="vehiculoIdvehiculo" type="int">
-                <column name="vehiculo_idvehiculo" />
+            <key-property name="idvehiculo" type="int">
+                <column name="idvehiculo" />
             </key-property>
-            <key-property name="servicioIdservicio" type="int">
-                <column name="servicio_idservicio" />
+            <key-property name="idservicio" type="int">
+                <column name="idservicio" />
             </key-property>
         </composite-id>
         <many-to-one name="servicio" class="modelos.Servicio" update="false" insert="false" fetch="select">
-            <column name="servicio_idservicio" not-null="true" />
+            <column name="idservicio" not-null="true" />
         </many-to-one>
         <many-to-one name="vehiculo" class="modelos.Vehiculo" update="false" insert="false" fetch="select">
-            <column name="vehiculo_idvehiculo" not-null="true" />
+            <column name="idvehiculo" not-null="true" />
         </many-to-one>
         <property name="observaciones" type="string">
-            <column name="Observaciones" length="65535" />
+            <column name="observaciones" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

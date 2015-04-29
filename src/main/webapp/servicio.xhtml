@@ -4,81 +4,150 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core">
-    <ui:define name="contenido">        
-        <div id="fCliente" class="tablaL">
-            <h:form>
-                <table class="tabla-form">
-                    <tr>
-                        <th>Cliente:</th>
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="separador">
+        <h:outputLabel style="color: #FFFFFF;
+                       font-size: 15pt;"
+                       value="SERVICIO # '#{servicioBean.selectedServicio.idservicio}'" />
+    </ui:define>
+    <ui:define name="contenido">
+        <h:form>
+            <div class="panel panel-default contenedor">
+              <div>  
+                <div>
+                    <table>
+                        <tr>
+                            <td><h:outputLabel value="Cliente: " /></td>
+                            <td>
+                                <h:selectOneMenu class="form-control" id="comboCliente" value="#{d}">
+                                    <f:selectItem itemLabel="------- Cliente --------" />
+                                    <f:selectItems  value="#{d}"/>
+                                </h:selectOneMenu>
+                            </td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h:outputLabel value="Tipo Servicio: " /></td>
+                            <td>
+                                <h:selectOneMenu class="form-control" id="comboTipoServicio" value="#{d}">
+                                    <f:selectItem itemLabel="-- Tipo de Servicio --" />
+                                    <f:selectItems  value="#{d}"/>
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td><h:outputLabel value="Fecha: " /></td>
+                            <td><h:inputText class="form-control"/></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h:outputLabel value="Hora: " /></td>
+                            <td><h:inputText class="form-control"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </h:form>
+        <h:form>
+            <div class="panel panel-default contenedor">
+              <div>
+                <div>
+                    <table>
+                        <tr>
+                            <td><h:outputLabel value="Veh&iacute;culo: " /></td>
+                            <td>
+                                <h:selectOneMenu class="form-control" id="comboVehiculo" value="#{d}">
+                                    <f:selectItem itemLabel="----- Vehiculo -----" />
+                                    <f:selectItems  value="#{d}"/>
+                                </h:selectOneMenu>
+                            </td>
+                            <td><h:outputLabel value="Chofer: " /></td>
+                            <td>
+                                <h:selectOneMenu class="form-control" id="comboChofer" value="#{d}">
+                                    <f:selectItem itemLabel="------ Chofer -------" />
+                                    <f:selectItems  value="#{d}"/>
+                                </h:selectOneMenu>
+                            </td>
+                            <td><h:outputLabel value="Numero Personas: " /></td>
+                            <td><h:inputText class="form-control" /></td>
+                        </tr>
+                    </table>    
+                </div>
+                <div>
+                    <table>
+                        <td><h:outputLabel value="Ruta " /></td>
                         <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Cliente ---"/>
-                                <f:selectItems/>
-                            </h:selectOneMenu>
-                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus opc"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Tipo de Cliente:</th>
-                        <td>
-                            <h:selectOneMenu class="btn btn-default" value="#{clienteBean.selectedCliente.tipoCliente.idtipoCliente}">
-                                <f:selectItem itemLabel="--- Tipo de Cliente ---" itemValue=""/>
-                                <f:selectItems value="#{tipoClienteBean.listaTipoCliente}" />
+                            <h:selectOneMenu class="form-control" id="comboRuta" value="#{d}">
+                                <f:selectItem itemLabel="------- Ruta -------" />
+                                <f:selectItems  value="#{d}"/>
                             </h:selectOneMenu>
                         </td>
-                    </tr>
-                    <tr>
-                        <th></th>
                         <td></td>
-                    </tr>
-                    <tr>
-                        <th>Vuelo:</th>
-                        <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Vuelo ---"/>
-                                <f:selectItems/>
-                            </h:selectOneMenu>
-                        </td>
-                    </tr>
-                </table>
-            </h:form>
-        </div>
-        <div id="fTransporte" class="tablaR">
-            <h:form>
-                <table class="tabla-form">
-                    <tr>
-                        <th>Veh&iacute;culo:</th>
-                        <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Veh&iacute;culo ---"/>
-                                <f:selectItems/>
-                            </h:selectOneMenu>
-                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
-                        </td>                            
-                    </tr>
-                    <tr>
-                        <th>Conductor:</th>
-                        <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Conductor ---"/>
-                                <f:selectItems/>
-                            </h:selectOneMenu>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th></th>
                         <td></td>
+                        <td></td>
+                        <td><h:outputLabel value="Tipo de Moneda: " /></td>
+                        <td>
+                            <h:selectOneMenu class="form-control" id="comboMoneda" value="#{d}">
+                                <f:selectItem itemLabel="- Tipo Moneda --" />
+                                <f:selectItems  value="#{d}"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </table>
+                </div>
+              </div>
+            </div>
+        </h:form>
+    </ui:define>
+    <ui:define name="panel-resumen">
+        <div class="panel panel-default panel-danger">
+            <div class="panel-heading ">
+                <h3 style="font-weight: bold;
+                       text-decoration: underline;
+                       color: #ac2925">Resumen</h3>
+            </div>            
+            <h:form>
+                <table style="font-size: 12pt;">
+                    <tr>
+                        <td><h:outputText value="Cliente: " /></td>
+                        <td><h:outputText value="#{cliente}" /></td>
                     </tr>
                     <tr>
-                        <th>Trasladista:</th>
-                        <td>
-                            <h:selectOneMenu class="btn btn-default">
-                                <f:selectItem itemLabel="--- Trasladista ---"/>
-                                <f:selectItems/>
-                            </h:selectOneMenu>
-                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open opc"/>
-                        </td>
+                        <td><h:outputText value="Fecha: " /></td>
+                        <td><h:outputText value="#{fecha}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Hora: " /></td>
+                        <td><h:outputText value="#{hora}" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Servicio: "  /></td>
+                        <td><h:outputText value="#{servicio}"  /></td>
+                    </tr>                    
+                    <tr>
+                        <td><h:outputText value="Ruta: "  /></td>
+                        <td><h:outputText value="#{ruta}"  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Tipo vehiculo: "  /></td>
+                        <td><h:outputText value="#{vehiculo}"  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Chofer: "  /></td>
+                        <td><h:outputText value="#{chofer}"  /></td>
+                    </tr>                    
+                    <tr>
+                        <td><h:outputText value="Lista Req: "  /></td>
+                        <td><h:outputText value="#{requerimientos}"  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Precio: "  /></td>
+                        <td><h:outputText value="#{precio} #{tipoMoneda}"  /></td>
                     </tr>
                 </table>
             </h:form>

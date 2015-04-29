@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,33 +26,28 @@ public class Servicio  implements java.io.Serializable {
 
 
      private Integer idservicio;
-     private Cliente cliente;
-     private DetalleServicio detalleServicio;
-     private Pax pax;
+     private Tarifa tarifa;
      private TipoServicio tipoServicio;
      private String descripcion;
-     private String estado;
+     private Integer numeroPersonas;
      private Set vehiculoHasServicios = new HashSet(0);
+     private Set files = new HashSet(0);
 
     public Servicio() {
     }
 
 	
-    public Servicio(Cliente cliente, DetalleServicio detalleServicio, Pax pax, TipoServicio tipoServicio, String estado) {
-        this.cliente = cliente;
-        this.detalleServicio = detalleServicio;
-        this.pax = pax;
+    public Servicio(Tarifa tarifa, TipoServicio tipoServicio) {
+        this.tarifa = tarifa;
         this.tipoServicio = tipoServicio;
-        this.estado = estado;
     }
-    public Servicio(Cliente cliente, DetalleServicio detalleServicio, Pax pax, TipoServicio tipoServicio, String descripcion, String estado, Set vehiculoHasServicios) {
-       this.cliente = cliente;
-       this.detalleServicio = detalleServicio;
-       this.pax = pax;
+    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, String descripcion, Integer numeroPersonas, Set vehiculoHasServicios, Set files) {
+       this.tarifa = tarifa;
        this.tipoServicio = tipoServicio;
        this.descripcion = descripcion;
-       this.estado = estado;
+       this.numeroPersonas = numeroPersonas;
        this.vehiculoHasServicios = vehiculoHasServicios;
+       this.files = files;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -68,33 +63,13 @@ public class Servicio  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idcliente", nullable=false)
-    public Cliente getCliente() {
-        return this.cliente;
+    @JoinColumn(name="idTarifa", nullable=false)
+    public Tarifa getTarifa() {
+        return this.tarifa;
     }
     
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="iddetalle_servicio", nullable=false)
-    public DetalleServicio getDetalleServicio() {
-        return this.detalleServicio;
-    }
-    
-    public void setDetalleServicio(DetalleServicio detalleServicio) {
-        this.detalleServicio = detalleServicio;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idPAX", nullable=false)
-    public Pax getPax() {
-        return this.pax;
-    }
-    
-    public void setPax(Pax pax) {
-        this.pax = pax;
+    public void setTarifa(Tarifa tarifa) {
+        this.tarifa = tarifa;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -118,13 +93,13 @@ public class Servicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="estado", nullable=false, length=45)
-    public String getEstado() {
-        return this.estado;
+    @Column(name="numeroPersonas")
+    public Integer getNumeroPersonas() {
+        return this.numeroPersonas;
     }
     
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setNumeroPersonas(Integer numeroPersonas) {
+        this.numeroPersonas = numeroPersonas;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")
@@ -134,6 +109,15 @@ public class Servicio  implements java.io.Serializable {
     
     public void setVehiculoHasServicios(Set vehiculoHasServicios) {
         this.vehiculoHasServicios = vehiculoHasServicios;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")
+    public Set getFiles() {
+        return this.files;
+    }
+    
+    public void setFiles(Set files) {
+        this.files = files;
     }
 
 

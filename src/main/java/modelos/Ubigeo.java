@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -23,18 +23,18 @@ public class Ubigeo  implements java.io.Serializable {
      private String codDep;
      private String codProv;
      private String codDst;
-     private String region;
+     private String dep;
      private String prov;
      private String dst;
 
     public Ubigeo() {
     }
 
-    public Ubigeo(String codDep, String codProv, String codDst, String region, String prov, String dst) {
+    public Ubigeo(String codDep, String codProv, String codDst, String dep, String prov, String dst) {
        this.codDep = codDep;
        this.codProv = codProv;
        this.codDst = codDst;
-       this.region = region;
+       this.dep = dep;
        this.prov = prov;
        this.dst = dst;
     }
@@ -82,13 +82,13 @@ public class Ubigeo  implements java.io.Serializable {
     }
 
     
-    @Column(name="Region", length=100)
-    public String getRegion() {
-        return this.region;
+    @Column(name="Dep", length=100)
+    public String getDep() {
+        return this.dep;
     }
     
-    public void setRegion(String region) {
-        this.region = region;
+    public void setDep(String dep) {
+        this.dep = dep;
     }
 
     

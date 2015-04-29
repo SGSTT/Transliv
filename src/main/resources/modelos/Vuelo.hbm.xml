@@ -1,33 +1,28 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Vuelo" table="vuelo" catalog="sgstt" optimistic-lock="version">
-        <id name="idvuelo" type="java.lang.Integer">
-            <column name="idvuelo" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="aerolinea" class="modelos.Aerolinea" fetch="select">
-            <column name="idaerolinea" not-null="true" />
+        <composite-id name="id" class="modelos.VueloId">
+            <key-property name="idvuelo" type="int">
+                <column name="idvuelo" />
+            </key-property>
+            <key-property name="aerolineaIdaerolinea" type="int">
+                <column name="aerolinea_idaerolinea" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="aerolinea" class="modelos.Aerolinea" update="false" insert="false" fetch="select">
+            <column name="aerolinea_idaerolinea" not-null="true" />
         </many-to-one>
         <property name="origen" type="string">
-            <column name="origen" length="45" not-null="true" />
+            <column name="origen" length="45" />
         </property>
         <property name="destino" type="string">
-            <column name="destino" length="45" not-null="true" />
+            <column name="destino" length="45" />
         </property>
-        <property name="fecha" type="date">
-            <column name="fecha" length="10" not-null="true" />
+        <property name="horario" type="string">
+            <column name="horario" length="45" />
         </property>
-        <property name="hora" type="time">
-            <column name="hora" length="8" not-null="true" />
-        </property>
-        <set name="detalleServicios" table="detalle_servicio" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="idvuelo" not-null="true" />
-            </key>
-            <one-to-many class="modelos.DetalleServicio" />
-        </set>
     </class>
 </hibernate-mapping>

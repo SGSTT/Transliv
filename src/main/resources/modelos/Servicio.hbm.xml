@@ -1,21 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Servicio" table="servicio" catalog="sgstt" optimistic-lock="version">
         <id name="idservicio" type="java.lang.Integer">
             <column name="idservicio" />
             <generator class="identity" />
         </id>
-        <many-to-one name="cliente" class="modelos.Cliente" fetch="select">
-            <column name="idcliente" not-null="true" />
-        </many-to-one>
-        <many-to-one name="detalleServicio" class="modelos.DetalleServicio" fetch="select">
-            <column name="iddetalle_servicio" length="4" not-null="true" />
-        </many-to-one>
-        <many-to-one name="pax" class="modelos.Pax" fetch="select">
-            <column name="idPAX" not-null="true" />
+        <many-to-one name="tarifa" class="modelos.Tarifa" fetch="select">
+            <column name="idTarifa" not-null="true" />
         </many-to-one>
         <many-to-one name="tipoServicio" class="modelos.TipoServicio" fetch="select">
             <column name="idtipo_servicio" not-null="true" />
@@ -23,14 +17,20 @@
         <property name="descripcion" type="string">
             <column name="descripcion" length="45" />
         </property>
-        <property name="estado" type="string">
-            <column name="estado" length="45" not-null="true" />
+        <property name="numeroPersonas" type="java.lang.Integer">
+            <column name="numeroPersonas" />
         </property>
         <set name="vehiculoHasServicios" table="vehiculo_has_servicio" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="servicio_idservicio" not-null="true" />
+                <column name="idservicio" not-null="true" />
             </key>
             <one-to-many class="modelos.VehiculoHasServicio" />
+        </set>
+        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idservicio" not-null="true" />
+            </key>
+            <one-to-many class="modelos.File" />
         </set>
     </class>
 </hibernate-mapping>

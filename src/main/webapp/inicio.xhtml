@@ -11,7 +11,7 @@
         <h:outputStylesheet name="css/inicio.css" />        
     </h:head>
     <h:body>
-        <div class="separadorH"></div>
+        <div class="separador"></div>
         <div id="todoDiv">
             <div id="header">
                 <div id="divLogo">
@@ -28,8 +28,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-            <div id="separador"></div>
+            </div>            
             <div id="nav">
                 <h:form id="menuBar">
                     <h:commandButton id="btnServicio" class="btn menuButton" action="servicio" value="SERVICIO" />
@@ -38,11 +37,16 @@
                     <h:commandButton class="btn menuButton" value="CUENTA" />
                 </h:form>
             </div>
-            <div class="separadorH"></div>
+            <div class="separadorH" style="padding-left: 350px;padding-top: 2px;">
+                <ui:insert name="separador"></ui:insert>
+            </div>
             <div id="content">
-                <ui:insert name="contenido">
-                    <div style="background-color:darkgray;height:400px"></div>
-                </ui:insert>
+                <div id="aside">
+                    <ui:insert name="panel-resumen"></ui:insert>
+                </div>
+                <div id="section">
+                    <ui:insert name="contenido"></ui:insert>
+                </div> 
             </div>
         </div>
     </h:body>

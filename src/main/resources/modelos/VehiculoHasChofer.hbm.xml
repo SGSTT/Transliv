@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.VehiculoHasChofer" table="vehiculo_has_chofer" catalog="sgstt" optimistic-lock="version">
         <composite-id name="id" class="modelos.VehiculoHasChoferId">
-            <key-property name="dvehiculo" type="int">
-                <column name="dvehiculo" />
+            <key-property name="idvehiculo" type="int">
+                <column name="idvehiculo" />
             </key-property>
             <key-property name="idchofer" type="int">
                 <column name="idchofer" />
@@ -16,10 +16,10 @@
             <column name="idchofer" not-null="true" />
         </many-to-one>
         <many-to-one name="vehiculo" class="modelos.Vehiculo" update="false" insert="false" fetch="select">
-            <column name="dvehiculo" not-null="true" />
+            <column name="idvehiculo" not-null="true" />
         </many-to-one>
-        <property name="idServicio" type="int">
-            <column name="id_servicio" not-null="true" />
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

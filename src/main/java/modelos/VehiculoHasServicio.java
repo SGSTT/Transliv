@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
@@ -47,8 +47,8 @@ public class VehiculoHasServicio  implements java.io.Serializable {
 
     
     @AttributeOverrides( {
-        @AttributeOverride(name="vehiculoIdvehiculo", column=@Column(name="vehiculo_idvehiculo", nullable=false) ), 
-        @AttributeOverride(name="servicioIdservicio", column=@Column(name="servicio_idservicio", nullable=false) ) } )
+        @AttributeOverride(name="idvehiculo", column=@Column(name="idvehiculo", nullable=false) ), 
+        @AttributeOverride(name="idservicio", column=@Column(name="idservicio", nullable=false) ) } )
     public VehiculoHasServicioId getId() {
         return this.id;
     }
@@ -58,7 +58,7 @@ public class VehiculoHasServicio  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="servicio_idservicio", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idservicio", nullable=false, insertable=false, updatable=false)
     public Servicio getServicio() {
         return this.servicio;
     }
@@ -68,7 +68,7 @@ public class VehiculoHasServicio  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="vehiculo_idvehiculo", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idvehiculo", nullable=false, insertable=false, updatable=false)
     public Vehiculo getVehiculo() {
         return this.vehiculo;
     }
@@ -78,7 +78,7 @@ public class VehiculoHasServicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="Observaciones", length=65535)
+    @Column(name="observaciones", length=65535)
     public String getObservaciones() {
         return this.observaciones;
     }

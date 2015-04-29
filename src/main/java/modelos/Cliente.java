@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -7,8 +7,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,45 +23,60 @@ import javax.persistence.Table;
 public class Cliente  implements java.io.Serializable {
 
 
-     private Integer idcliente;
+     private int idCliente;
      private TipoCliente tipoCliente;
-     private String nombres;
-     private String apellidos;
-     private int dni;
-     private Set servicios = new HashSet(0);
+     private String nombre;
+     private Integer idTipoDocumento;
+     private Integer numeroDocumento;
+     private String direccion;
+     private Integer idEstado;
+     private String correo;
+     private String idUbigeo;
+     private Integer idPax;
+     private Set personaNaturals = new HashSet(0);
+     private Set agencias = new HashSet(0);
+     private Set files = new HashSet(0);
+     private Set personaJuridicas = new HashSet(0);
 
     public Cliente() {
     }
 
 	
-    public Cliente(TipoCliente tipoCliente, String nombres, String apellidos, int dni) {
+    public Cliente(int idCliente, TipoCliente tipoCliente) {
+        this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.dni = dni;
     }
-    public Cliente(TipoCliente tipoCliente, String nombres, String apellidos, int dni, Set servicios) {
+    public Cliente(int idCliente, TipoCliente tipoCliente, String nombre, Integer idTipoDocumento, Integer numeroDocumento, String direccion, Integer idEstado, String correo, String idUbigeo, Integer idPax, Set personaNaturals, Set agencias, Set files, Set personaJuridicas) {
+       this.idCliente = idCliente;
        this.tipoCliente = tipoCliente;
-       this.nombres = nombres;
-       this.apellidos = apellidos;
-       this.dni = dni;
-       this.servicios = servicios;
+       this.nombre = nombre;
+       this.idTipoDocumento = idTipoDocumento;
+       this.numeroDocumento = numeroDocumento;
+       this.direccion = direccion;
+       this.idEstado = idEstado;
+       this.correo = correo;
+       this.idUbigeo = idUbigeo;
+       this.idPax = idPax;
+       this.personaNaturals = personaNaturals;
+       this.agencias = agencias;
+       this.files = files;
+       this.personaJuridicas = personaJuridicas;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id 
 
     
-    @Column(name="idcliente", unique=true, nullable=false)
-    public Integer getIdcliente() {
-        return this.idcliente;
+    @Column(name="idCliente", unique=true, nullable=false)
+    public int getIdCliente() {
+        return this.idCliente;
     }
     
-    public void setIdcliente(Integer idcliente) {
-        this.idcliente = idcliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idtipo_cliente", nullable=false)
+    @JoinColumn(name="id_TipoCliente", nullable=false)
     public TipoCliente getTipoCliente() {
         return this.tipoCliente;
     }
@@ -73,42 +86,119 @@ public class Cliente  implements java.io.Serializable {
     }
 
     
-    @Column(name="nombres", nullable=false, length=45)
-    public String getNombres() {
-        return this.nombres;
+    @Column(name="Nombre", length=45)
+    public String getNombre() {
+        return this.nombre;
     }
     
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    
-    @Column(name="apellidos", nullable=false, length=45)
-    public String getApellidos() {
-        return this.apellidos;
-    }
-    
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     
-    @Column(name="dni", nullable=false)
-    public int getDni() {
-        return this.dni;
+    @Column(name="idTipoDocumento")
+    public Integer getIdTipoDocumento() {
+        return this.idTipoDocumento;
     }
     
-    public void setDni(int dni) {
-        this.dni = dni;
+    public void setIdTipoDocumento(Integer idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
+    }
+
+    
+    @Column(name="NumeroDocumento")
+    public Integer getNumeroDocumento() {
+        return this.numeroDocumento;
+    }
+    
+    public void setNumeroDocumento(Integer numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    
+    @Column(name="Direccion", length=45)
+    public String getDireccion() {
+        return this.direccion;
+    }
+    
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    
+    @Column(name="idEstado")
+    public Integer getIdEstado() {
+        return this.idEstado;
+    }
+    
+    public void setIdEstado(Integer idEstado) {
+        this.idEstado = idEstado;
+    }
+
+    
+    @Column(name="Correo", length=45)
+    public String getCorreo() {
+        return this.correo;
+    }
+    
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    
+    @Column(name="id_Ubigeo", length=45)
+    public String getIdUbigeo() {
+        return this.idUbigeo;
+    }
+    
+    public void setIdUbigeo(String idUbigeo) {
+        this.idUbigeo = idUbigeo;
+    }
+
+    
+    @Column(name="id_Pax")
+    public Integer getIdPax() {
+        return this.idPax;
+    }
+    
+    public void setIdPax(Integer idPax) {
+        this.idPax = idPax;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="cliente_1")
+    public Set getPersonaNaturals() {
+        return this.personaNaturals;
+    }
+    
+    public void setPersonaNaturals(Set personaNaturals) {
+        this.personaNaturals = personaNaturals;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
-    public Set getServicios() {
-        return this.servicios;
+    public Set getAgencias() {
+        return this.agencias;
     }
     
-    public void setServicios(Set servicios) {
-        this.servicios = servicios;
+    public void setAgencias(Set agencias) {
+        this.agencias = agencias;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
+    public Set getFiles() {
+        return this.files;
+    }
+    
+    public void setFiles(Set files) {
+        this.files = files;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
+    public Set getPersonaJuridicas() {
+        return this.personaJuridicas;
+    }
+    
+    public void setPersonaJuridicas(Set personaJuridicas) {
+        this.personaJuridicas = personaJuridicas;
     }
 
 

@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -12,36 +12,36 @@ import javax.persistence.Embeddable;
 public class VehiculoHasServicioId  implements java.io.Serializable {
 
 
-     private int vehiculoIdvehiculo;
-     private int servicioIdservicio;
+     private int idvehiculo;
+     private int idservicio;
 
     public VehiculoHasServicioId() {
     }
 
-    public VehiculoHasServicioId(int vehiculoIdvehiculo, int servicioIdservicio) {
-       this.vehiculoIdvehiculo = vehiculoIdvehiculo;
-       this.servicioIdservicio = servicioIdservicio;
+    public VehiculoHasServicioId(int idvehiculo, int idservicio) {
+       this.idvehiculo = idvehiculo;
+       this.idservicio = idservicio;
     }
    
 
 
-    @Column(name="vehiculo_idvehiculo", nullable=false)
-    public int getVehiculoIdvehiculo() {
-        return this.vehiculoIdvehiculo;
+    @Column(name="idvehiculo", nullable=false)
+    public int getIdvehiculo() {
+        return this.idvehiculo;
     }
     
-    public void setVehiculoIdvehiculo(int vehiculoIdvehiculo) {
-        this.vehiculoIdvehiculo = vehiculoIdvehiculo;
+    public void setIdvehiculo(int idvehiculo) {
+        this.idvehiculo = idvehiculo;
     }
 
 
-    @Column(name="servicio_idservicio", nullable=false)
-    public int getServicioIdservicio() {
-        return this.servicioIdservicio;
+    @Column(name="idservicio", nullable=false)
+    public int getIdservicio() {
+        return this.idservicio;
     }
     
-    public void setServicioIdservicio(int servicioIdservicio) {
-        this.servicioIdservicio = servicioIdservicio;
+    public void setIdservicio(int idservicio) {
+        this.idservicio = idservicio;
     }
 
 
@@ -51,15 +51,15 @@ public class VehiculoHasServicioId  implements java.io.Serializable {
 		 if ( !(other instanceof VehiculoHasServicioId) ) return false;
 		 VehiculoHasServicioId castOther = ( VehiculoHasServicioId ) other; 
          
-		 return (this.getVehiculoIdvehiculo()==castOther.getVehiculoIdvehiculo())
- && (this.getServicioIdservicio()==castOther.getServicioIdservicio());
+		 return (this.getIdvehiculo()==castOther.getIdvehiculo())
+ && (this.getIdservicio()==castOther.getIdservicio());
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + this.getVehiculoIdvehiculo();
-         result = 37 * result + this.getServicioIdservicio();
+         result = 37 * result + this.getIdvehiculo();
+         result = 37 * result + this.getIdservicio();
          return result;
    }   
 

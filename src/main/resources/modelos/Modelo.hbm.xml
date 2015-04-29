@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Modelo" table="modelo" catalog="sgstt" optimistic-lock="version">
+        <id name="idmodelo" type="java.lang.Integer">
+            <column name="idmodelo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="marca" class="modelos.Marca" fetch="select">
+            <column name="marca_idmarca" not-null="true" />
+        </many-to-one>
+        <property name="nombreModelo" type="string">
+            <column name="nombreModelo" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

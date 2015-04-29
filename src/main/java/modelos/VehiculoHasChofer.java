@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
@@ -25,23 +25,29 @@ public class VehiculoHasChofer  implements java.io.Serializable {
      private VehiculoHasChoferId id;
      private Chofer chofer;
      private Vehiculo vehiculo;
-     private int idServicio;
+     private String observaciones;
 
     public VehiculoHasChofer() {
     }
 
-    public VehiculoHasChofer(VehiculoHasChoferId id, Chofer chofer, Vehiculo vehiculo, int idServicio) {
+	
+    public VehiculoHasChofer(VehiculoHasChoferId id, Chofer chofer, Vehiculo vehiculo) {
+        this.id = id;
+        this.chofer = chofer;
+        this.vehiculo = vehiculo;
+    }
+    public VehiculoHasChofer(VehiculoHasChoferId id, Chofer chofer, Vehiculo vehiculo, String observaciones) {
        this.id = id;
        this.chofer = chofer;
        this.vehiculo = vehiculo;
-       this.idServicio = idServicio;
+       this.observaciones = observaciones;
     }
    
      @EmbeddedId
 
     
     @AttributeOverrides( {
-        @AttributeOverride(name="dvehiculo", column=@Column(name="dvehiculo", nullable=false) ), 
+        @AttributeOverride(name="idvehiculo", column=@Column(name="idvehiculo", nullable=false) ), 
         @AttributeOverride(name="idchofer", column=@Column(name="idchofer", nullable=false) ) } )
     public VehiculoHasChoferId getId() {
         return this.id;
@@ -62,7 +68,7 @@ public class VehiculoHasChofer  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="dvehiculo", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idvehiculo", nullable=false, insertable=false, updatable=false)
     public Vehiculo getVehiculo() {
         return this.vehiculo;
     }
@@ -72,13 +78,13 @@ public class VehiculoHasChofer  implements java.io.Serializable {
     }
 
     
-    @Column(name="id_servicio", nullable=false)
-    public int getIdServicio() {
-        return this.idServicio;
+    @Column(name="observaciones", length=65535)
+    public String getObservaciones() {
+        return this.observaciones;
     }
     
-    public void setIdServicio(int idServicio) {
-        this.idServicio = idServicio;
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 
 

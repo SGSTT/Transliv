@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Ubigeo" table="ubigeo" catalog="sgstt" optimistic-lock="version">
         <id name="cdUbigeo" type="java.lang.Integer">
@@ -17,8 +17,8 @@
         <property name="codDst" type="string">
             <column name="CodDst" length="2" />
         </property>
-        <property name="region" type="string">
-            <column name="Region" length="100" />
+        <property name="dep" type="string">
+            <column name="Dep" length="100" />
         </property>
         <property name="prov" type="string">
             <column name="Prov" length="100" />

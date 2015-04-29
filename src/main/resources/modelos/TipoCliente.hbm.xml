@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-abr-2015 13:55:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 8:18:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.TipoCliente" table="tipo_cliente" catalog="sgstt" optimistic-lock="version">
-        <id name="idtipoCliente" type="java.lang.Integer">
-            <column name="idtipo_cliente" />
-            <generator class="identity" />
+        <id name="idTipoCliente" type="int">
+            <column name="id_TipoCliente" />
+            <generator class="assigned" />
         </id>
-        <property name="descripcion" type="string">
-            <column name="descripcion" length="45" />
+        <property name="tipoCliente" type="string">
+            <column name="Tipo_Cliente" length="45" />
         </property>
         <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="idtipo_cliente" not-null="true" />
+                <column name="id_TipoCliente" not-null="true" />
             </key>
             <one-to-many class="modelos.Cliente" />
         </set>

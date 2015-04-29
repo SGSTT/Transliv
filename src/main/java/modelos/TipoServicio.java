@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -24,18 +24,14 @@ public class TipoServicio  implements java.io.Serializable {
 
 
      private Integer idtipoServicio;
-     private String tipoServicio;
+     private String descripcion;
      private Set servicios = new HashSet(0);
 
     public TipoServicio() {
     }
 
-	
-    public TipoServicio(String tipoServicio) {
-        this.tipoServicio = tipoServicio;
-    }
-    public TipoServicio(String tipoServicio, Set servicios) {
-       this.tipoServicio = tipoServicio;
+    public TipoServicio(String descripcion, Set servicios) {
+       this.descripcion = descripcion;
        this.servicios = servicios;
     }
    
@@ -52,13 +48,13 @@ public class TipoServicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="tipo_servicio", nullable=false, length=45)
-    public String getTipoServicio() {
-        return this.tipoServicio;
+    @Column(name="descripcion", length=45)
+    public String getDescripcion() {
+        return this.descripcion;
     }
     
-    public void setTipoServicio(String tipoServicio) {
-        this.tipoServicio = tipoServicio;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="tipoServicio")

@@ -1,6 +1,7 @@
 body{
     background-color: #000000;
     display: block;    
+    font-family: "Century Gothic";
     overflow-x: hidden;    
 }
 #todoDiv{
@@ -27,21 +28,27 @@ body{
     margin-left: 25%;
     padding: 7px 60px 10px 0px;
 }
-.separadorH{
-    background-color: #000000;
-    height: 10px;
-    margin: 0px -17px 0px -17px;
+.separadorH, .separador{
+    background-color: #000000;    
 }
-.separadorV{
-    background-color: #000000;
-    height: 100px;
-    width: 2px;
-    margin: 0px -17px 0px -17px;
+.separadorH{
+    height: 33px;
+}
+.separador{
+    height: 10px;
 }
 #content{
-    width: 1100px;
-    height: 450px;
-    margin: 50px auto 0 auto;        
+    width: 100%;
+    height: 67%;
+    margin: 50px 0px 0px 5%;
+}
+#aside{    
+    width: 25%;
+    float: right;
+    height: 100%;
+}
+#section{
+    width: 70%;
 }
 .tablaL, .tablaR{
     width: 450px;

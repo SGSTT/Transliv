@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,23 +26,21 @@ public class Chofer  implements java.io.Serializable {
      private Integer idchofer;
      private String nombre;
      private String apellido;
-     private int dni;
+     private String dni;
+     private String categoria;
      private Set vehiculoHasChofers = new HashSet(0);
+     private Set incidencias = new HashSet(0);
 
     public Chofer() {
     }
 
-	
-    public Chofer(String nombre, String apellido, int dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-    }
-    public Chofer(String nombre, String apellido, int dni, Set vehiculoHasChofers) {
+    public Chofer(String nombre, String apellido, String dni, String categoria, Set vehiculoHasChofers, Set incidencias) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
+       this.categoria = categoria;
        this.vehiculoHasChofers = vehiculoHasChofers;
+       this.incidencias = incidencias;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -58,7 +56,7 @@ public class Chofer  implements java.io.Serializable {
     }
 
     
-    @Column(name="nombre", nullable=false, length=45)
+    @Column(name="nombre", length=45)
     public String getNombre() {
         return this.nombre;
     }
@@ -68,7 +66,7 @@ public class Chofer  implements java.io.Serializable {
     }
 
     
-    @Column(name="apellido", nullable=false, length=45)
+    @Column(name="apellido", length=45)
     public String getApellido() {
         return this.apellido;
     }
@@ -78,13 +76,23 @@ public class Chofer  implements java.io.Serializable {
     }
 
     
-    @Column(name="dni", nullable=false)
-    public int getDni() {
+    @Column(name="dni", length=45)
+    public String getDni() {
         return this.dni;
     }
     
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    
+    @Column(name="categoria", length=45)
+    public String getCategoria() {
+        return this.categoria;
+    }
+    
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="chofer")
@@ -94,6 +102,15 @@ public class Chofer  implements java.io.Serializable {
     
     public void setVehiculoHasChofers(Set vehiculoHasChofers) {
         this.vehiculoHasChofers = vehiculoHasChofers;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="chofer")
+    public Set getIncidencias() {
+        return this.incidencias;
+    }
+    
+    public void setIncidencias(Set incidencias) {
+        this.incidencias = incidencias;
     }
 
 

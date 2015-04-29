@@ -1,5 +1,5 @@
 package modelos;
-// Generated 28-abr-2015 13:55:09 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 8:17:58 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,26 +31,14 @@ public class Trasladista  implements java.io.Serializable {
      private String correo;
      private String telefono;
      private String celular;
-     private String estado;
-     private int codUbigeo;
+     private Byte estado;
+     private Integer codUbigeo;
      private Set detalleServicios = new HashSet(0);
 
     public Trasladista() {
     }
 
-	
-    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, String estado, int codUbigeo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.celular = celular;
-        this.estado = estado;
-        this.codUbigeo = codUbigeo;
-    }
-    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, String estado, int codUbigeo, Set detalleServicios) {
+    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, Byte estado, Integer codUbigeo, Set detalleServicios) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
@@ -76,7 +64,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="nombre", nullable=false, length=60)
+    @Column(name="nombre", length=60)
     public String getNombre() {
         return this.nombre;
     }
@@ -86,7 +74,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="apellido", nullable=false, length=80)
+    @Column(name="apellido", length=80)
     public String getApellido() {
         return this.apellido;
     }
@@ -96,7 +84,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="dni", nullable=false, length=8)
+    @Column(name="dni", length=8)
     public String getDni() {
         return this.dni;
     }
@@ -106,7 +94,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="direccion", nullable=false, length=200)
+    @Column(name="direccion", length=200)
     public String getDireccion() {
         return this.direccion;
     }
@@ -116,7 +104,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="correo", nullable=false, length=100)
+    @Column(name="correo", length=100)
     public String getCorreo() {
         return this.correo;
     }
@@ -126,7 +114,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="telefono", nullable=false, length=9)
+    @Column(name="telefono", length=9)
     public String getTelefono() {
         return this.telefono;
     }
@@ -136,7 +124,7 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="celular", nullable=false, length=11)
+    @Column(name="celular", length=11)
     public String getCelular() {
         return this.celular;
     }
@@ -146,22 +134,22 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="estado", nullable=false, length=8)
-    public String getEstado() {
+    @Column(name="estado")
+    public Byte getEstado() {
         return this.estado;
     }
     
-    public void setEstado(String estado) {
+    public void setEstado(Byte estado) {
         this.estado = estado;
     }
 
     
-    @Column(name="codUbigeo", nullable=false)
-    public int getCodUbigeo() {
+    @Column(name="codUbigeo")
+    public Integer getCodUbigeo() {
         return this.codUbigeo;
     }
     
-    public void setCodUbigeo(int codUbigeo) {
+    public void setCodUbigeo(Integer codUbigeo) {
         this.codUbigeo = codUbigeo;
     }
 
