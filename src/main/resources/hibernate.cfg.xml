@@ -7,6 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sgstt?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">12345</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping resource="modelos/File.hbm.xml"/>
     <mapping resource="modelos/EstadoIncidencia.hbm.xml"/>
     <mapping resource="modelos/Ubigeo.hbm.xml"/>

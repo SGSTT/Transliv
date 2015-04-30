@@ -2,6 +2,7 @@
  */
 package beans;
 
+import daos.ServicioDao;
 import javax.faces.event.ActionEvent;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -12,9 +13,9 @@ import modelos.Servicio;
 public class ServicioBean {
     String hora;
     String fecha;
-    private Servicio selectedServicio;
+    private Servicio selectedServicio;    
     
-    public ServicioBean() {
+    public ServicioBean() {        
         this.selectedServicio = new Servicio();
     }
     
@@ -26,5 +27,6 @@ public class ServicioBean {
     }
     
     public void insertarServicio(ActionEvent e){
+        
     }
 }

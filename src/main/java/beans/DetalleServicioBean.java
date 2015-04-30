@@ -4,13 +4,15 @@ package beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.ActionEvent;
 import modelos.Servicio;
 
 @ManagedBean
 @RequestScoped
-public class DetalleServicioBean {
+public class DetalleServicioBean {    
     Servicio servicio = new Servicio();
     private int idServicioDetalle;
+    
     
     public DetalleServicioBean() {
         idServicioDetalle = servicio.getIdservicio();
@@ -21,5 +23,9 @@ public class DetalleServicioBean {
     }
     public void setIdServicioDetalle(int idServicioDetalle){
         this.idServicioDetalle = idServicioDetalle;
+    }
+    
+    public void insertarDetalleServicio(ActionEvent ev){
+        
     }
 }

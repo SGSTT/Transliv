@@ -21,7 +21,7 @@ public class VehiculoBean {
     public List<SelectItem> getComboVehiculo(){
         comboVehiculo = new ArrayList<>();
         VehiculoDao veDao = new VehiculoDao();
-        List<Vehiculo> listaVehiculos = veDao.listarTodos();
+        List<Vehiculo> listaVehiculos = veDao.listarVehiculosDisponibles();
         for(Vehiculo vehiculo : listaVehiculos){
             SelectItem selectItem = new SelectItem(vehiculo.getIdvehiculo(), vehiculo.getPlaca());
             comboVehiculo.add(selectItem);
