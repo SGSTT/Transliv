@@ -56,7 +56,7 @@
         
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
-            <artifactId>cruze</artifactId>  
+            <artifactId>bootstrap</artifactId>  
             <version>1.0.10</version>  
         </dependency>           
           

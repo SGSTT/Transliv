@@ -1,38 +1,49 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Servicio" table="servicio" catalog="sgstt" optimistic-lock="version">
         <id name="idservicio" type="java.lang.Integer">
             <column name="idservicio" />
             <generator class="identity" />
         </id>
-        <many-to-one name="tarifa" class="modelos.Tarifa" fetch="select">
-            <column name="idTarifa" not-null="true" />
-        </many-to-one>
         <many-to-one name="tipoServicio" class="modelos.TipoServicio" fetch="select">
             <column name="idtipo_servicio" not-null="true" />
         </many-to-one>
-        <property name="numeroPersonas" type="java.lang.Integer">
-            <column name="numeroPersonas" />
+        <property name="origen" type="string">
+            <column name="origen" length="45" />
         </property>
-        <property name="hora" type="string">
-            <column name="hora" length="45" not-null="true" />
+        <property name="destino" type="string">
+            <column name="destino" length="45" />
         </property>
         <property name="fecha" type="string">
-            <column name="fecha" length="45" not-null="true" />
+            <column name="fecha" length="45" />
         </property>
-        <set name="vehiculoHasServicios" table="vehiculo_has_servicio" inverse="true" lazy="true" fetch="select">
+        <property name="hora" type="string">
+            <column name="hora" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <set name="vehiculoHasChoferHasServicios" table="vehiculo_has_chofer_has_servicio" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idservicio" not-null="true" />
             </key>
-            <one-to-many class="modelos.VehiculoHasServicio" />
+            <one-to-many class="modelos.VehiculoHasChoferHasServicio" />
         </set>
-        <one-to-one name="detalleServicio" class="modelos.DetalleServicio"></one-to-one>
-        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+        <set name="servicioDetalles" table="servicio_detalle" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idservicio" not-null="true" />
+            </key>
+            <one-to-many class="modelos.ServicioDetalle" />
+        </set>
+        <set name="files" table="file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="servicio_idservicio" not-null="true" />
             </key>
             <one-to-many class="modelos.File" />
         </set>

@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -28,25 +28,26 @@ public class Vehiculo  implements java.io.Serializable {
      private Integer idvehiculo;
      private EstadoVehiculo estadoVehiculo;
      private Marca marca;
+     private TipoVehiculo tipoVehiculo;
      private String descripcion;
      private String placa;
-     private Set vehiculoHasServicios = new HashSet(0);
      private Set vehiculoHasChofers = new HashSet(0);
 
     public Vehiculo() {
     }
 
 	
-    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca) {
+    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca, TipoVehiculo tipoVehiculo) {
         this.estadoVehiculo = estadoVehiculo;
         this.marca = marca;
+        this.tipoVehiculo = tipoVehiculo;
     }
-    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca, String descripcion, String placa, Set vehiculoHasServicios, Set vehiculoHasChofers) {
+    public Vehiculo(EstadoVehiculo estadoVehiculo, Marca marca, TipoVehiculo tipoVehiculo, String descripcion, String placa, Set vehiculoHasChofers) {
        this.estadoVehiculo = estadoVehiculo;
        this.marca = marca;
+       this.tipoVehiculo = tipoVehiculo;
        this.descripcion = descripcion;
        this.placa = placa;
-       this.vehiculoHasServicios = vehiculoHasServicios;
        this.vehiculoHasChofers = vehiculoHasChofers;
     }
    
@@ -82,6 +83,16 @@ public class Vehiculo  implements java.io.Serializable {
         this.marca = marca;
     }
 
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="idtipo vehiculo", nullable=false)
+    public TipoVehiculo getTipoVehiculo() {
+        return this.tipoVehiculo;
+    }
+    
+    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
+    }
+
     
     @Column(name="descripcion", length=45)
     public String getDescripcion() {
@@ -100,15 +111,6 @@ public class Vehiculo  implements java.io.Serializable {
     
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="vehiculo")
-    public Set getVehiculoHasServicios() {
-        return this.vehiculoHasServicios;
-    }
-    
-    public void setVehiculoHasServicios(Set vehiculoHasServicios) {
-        this.vehiculoHasServicios = vehiculoHasServicios;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vehiculo")

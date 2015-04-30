@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,33 +26,34 @@ public class Servicio  implements java.io.Serializable {
 
 
      private Integer idservicio;
-     private Tarifa tarifa;
      private TipoServicio tipoServicio;
-     private Integer numeroPersonas;
-     private String hora;
+     private String origen;
+     private String destino;
      private String fecha;
-     private Set vehiculoHasServicios = new HashSet(0);
-     private DetalleServicio detalleServicio;
+     private String hora;
+     private String direccion;
+     private String descripcion;
+     private Set vehiculoHasChoferHasServicios = new HashSet(0);
+     private Set servicioDetalles = new HashSet(0);
      private Set files = new HashSet(0);
 
     public Servicio() {
     }
 
 	
-    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, String hora, String fecha) {
-        this.tarifa = tarifa;
+    public Servicio(TipoServicio tipoServicio) {
         this.tipoServicio = tipoServicio;
-        this.hora = hora;
-        this.fecha = fecha;
     }
-    public Servicio(Tarifa tarifa, TipoServicio tipoServicio, Integer numeroPersonas, String hora, String fecha, Set vehiculoHasServicios, DetalleServicio detalleServicio, Set files) {
-       this.tarifa = tarifa;
+    public Servicio(TipoServicio tipoServicio, String origen, String destino, String fecha, String hora, String direccion, String descripcion, Set vehiculoHasChoferHasServicios, Set servicioDetalles, Set files) {
        this.tipoServicio = tipoServicio;
-       this.numeroPersonas = numeroPersonas;
-       this.hora = hora;
+       this.origen = origen;
+       this.destino = destino;
        this.fecha = fecha;
-       this.vehiculoHasServicios = vehiculoHasServicios;
-       this.detalleServicio = detalleServicio;
+       this.hora = hora;
+       this.direccion = direccion;
+       this.descripcion = descripcion;
+       this.vehiculoHasChoferHasServicios = vehiculoHasChoferHasServicios;
+       this.servicioDetalles = servicioDetalles;
        this.files = files;
     }
    
@@ -70,16 +70,6 @@ public class Servicio  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idTarifa", nullable=false)
-    public Tarifa getTarifa() {
-        return this.tarifa;
-    }
-    
-    public void setTarifa(Tarifa tarifa) {
-        this.tarifa = tarifa;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idtipo_servicio", nullable=false)
     public TipoServicio getTipoServicio() {
         return this.tipoServicio;
@@ -90,17 +80,37 @@ public class Servicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="numeroPersonas")
-    public Integer getNumeroPersonas() {
-        return this.numeroPersonas;
+    @Column(name="origen", length=45)
+    public String getOrigen() {
+        return this.origen;
     }
     
-    public void setNumeroPersonas(Integer numeroPersonas) {
-        this.numeroPersonas = numeroPersonas;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
     
-    @Column(name="hora", nullable=false, length=45)
+    @Column(name="destino", length=45)
+    public String getDestino() {
+        return this.destino;
+    }
+    
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    
+    @Column(name="fecha", length=45)
+    public String getFecha() {
+        return this.fecha;
+    }
+    
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    
+    @Column(name="hora", length=45)
     public String getHora() {
         return this.hora;
     }
@@ -110,31 +120,41 @@ public class Servicio  implements java.io.Serializable {
     }
 
     
-    @Column(name="fecha", nullable=false, length=45)
-    public String getFecha() {
-        return this.fecha;
+    @Column(name="direccion", length=45)
+    public String getDireccion() {
+        return this.direccion;
     }
     
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    
+    @Column(name="descripcion", length=45)
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")
-    public Set getVehiculoHasServicios() {
-        return this.vehiculoHasServicios;
+    public Set getVehiculoHasChoferHasServicios() {
+        return this.vehiculoHasChoferHasServicios;
     }
     
-    public void setVehiculoHasServicios(Set vehiculoHasServicios) {
-        this.vehiculoHasServicios = vehiculoHasServicios;
+    public void setVehiculoHasChoferHasServicios(Set vehiculoHasChoferHasServicios) {
+        this.vehiculoHasChoferHasServicios = vehiculoHasChoferHasServicios;
     }
 
-@OneToOne(fetch=FetchType.LAZY, mappedBy="servicio")
-    public DetalleServicio getDetalleServicio() {
-        return this.detalleServicio;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")
+    public Set getServicioDetalles() {
+        return this.servicioDetalles;
     }
     
-    public void setDetalleServicio(DetalleServicio detalleServicio) {
-        this.detalleServicio = detalleServicio;
+    public void setServicioDetalles(Set servicioDetalles) {
+        this.servicioDetalles = servicioDetalles;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="servicio")

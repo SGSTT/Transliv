@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,14 +31,14 @@ public class Trasladista  implements java.io.Serializable {
      private String correo;
      private String telefono;
      private String celular;
-     private String estado;
+     private Byte estado;
      private Integer codUbigeo;
-     private Set detalleServicios = new HashSet(0);
+     private Set servicioDetalles = new HashSet(0);
 
     public Trasladista() {
     }
 
-    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, String estado, Integer codUbigeo, Set detalleServicios) {
+    public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, Byte estado, Integer codUbigeo, Set servicioDetalles) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
@@ -48,7 +48,7 @@ public class Trasladista  implements java.io.Serializable {
        this.celular = celular;
        this.estado = estado;
        this.codUbigeo = codUbigeo;
-       this.detalleServicios = detalleServicios;
+       this.servicioDetalles = servicioDetalles;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -134,12 +134,12 @@ public class Trasladista  implements java.io.Serializable {
     }
 
     
-    @Column(name="estado", length=20)
-    public String getEstado() {
+    @Column(name="estado")
+    public Byte getEstado() {
         return this.estado;
     }
     
-    public void setEstado(String estado) {
+    public void setEstado(Byte estado) {
         this.estado = estado;
     }
 
@@ -154,12 +154,12 @@ public class Trasladista  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="trasladista")
-    public Set getDetalleServicios() {
-        return this.detalleServicios;
+    public Set getServicioDetalles() {
+        return this.servicioDetalles;
     }
     
-    public void setDetalleServicios(Set detalleServicios) {
-        this.detalleServicios = detalleServicios;
+    public void setServicioDetalles(Set servicioDetalles) {
+        this.servicioDetalles = servicioDetalles;
     }
 
 

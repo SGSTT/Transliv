@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,15 +25,15 @@ public class Aerolinea  implements java.io.Serializable {
 
      private Integer idaerolinea;
      private String descripcion;
-     private Set detalleServicios = new HashSet(0);
+     private Set servicioDetalles = new HashSet(0);
      private Set vuelos = new HashSet(0);
 
     public Aerolinea() {
     }
 
-    public Aerolinea(String descripcion, Set detalleServicios, Set vuelos) {
+    public Aerolinea(String descripcion, Set servicioDetalles, Set vuelos) {
        this.descripcion = descripcion;
-       this.detalleServicios = detalleServicios;
+       this.servicioDetalles = servicioDetalles;
        this.vuelos = vuelos;
     }
    
@@ -60,12 +60,12 @@ public class Aerolinea  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="aerolinea")
-    public Set getDetalleServicios() {
-        return this.detalleServicios;
+    public Set getServicioDetalles() {
+        return this.servicioDetalles;
     }
     
-    public void setDetalleServicios(Set detalleServicios) {
-        this.detalleServicios = detalleServicios;
+    public void setServicioDetalles(Set servicioDetalles) {
+        this.servicioDetalles = servicioDetalles;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="aerolinea")

@@ -17,22 +17,12 @@
               <div>  
                 <div>
                     <table>
-                        <tr>
-                            <td><h:outputLabel value="Cliente: " /></td>
-                            <td>
-                                <h:selectOneMenu class="form-control" id="comboCliente" value="#{d}">
-                                    <f:selectItem itemLabel="------- Cliente --------" />
-                                    <f:selectItems  value="#{d}"/>
-                                </h:selectOneMenu>
-                            </td> 
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr>                            
                             <td><h:outputLabel value="Tipo Servicio: " /></td>
                             <td>
-                                <h:selectOneMenu class="form-control" id="comboTipoServicio" value="#{d}">
-                                    <f:selectItem itemLabel="-- Tipo de Servicio --" />
-                                    <f:selectItems  value="#{d}"/>
+                                <h:selectOneMenu class="form-control" id="comboTipoServicio" value="#{servicioBean.selectedServicio.tipoServicio.idtipoServicio }">
+                                    <f:selectItem itemLabel="-- Tipo de Servicio --" value="0"/>
+                                    <f:selectItems  value="#{tipoServicioBean.comboTipoServicio}"/>
                                 </h:selectOneMenu>
                             </td>
                         </tr>
@@ -42,12 +32,12 @@
                     <table>
                         <tr>
                             <td><h:outputLabel value="Fecha: " /></td>
-                            <td><h:inputText class="form-control"/></td>
+                            <td><h:inputText class="form-control" value="#{servicioBean.selectedServicio.fecha}" /></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><h:outputLabel value="Hora: " /></td>
-                            <td><h:inputText class="form-control"/></td>
+                            <td><h:inputText class="form-control" value="#{servicioBean.selectedServicio.hora}" /></td>                            
                         </tr>
                     </table>
                 </div>
@@ -55,7 +45,7 @@
           </div>
         </h:form>
         <h:form>
-            <div class="panel panel-default contenedor">
+            <h:panelGroup id="NoTercerizado">
               <div>
                 <div>
                     <table>
@@ -63,14 +53,14 @@
                             <td><h:outputLabel value="Veh&iacute;culo: " /></td>
                             <td>
                                 <h:selectOneMenu class="form-control" id="comboVehiculo" value="#{d}">
-                                    <f:selectItem itemLabel="----- Vehiculo -----" />
+                                    <f:selectItem itemLabel="----- Vehiculo -----" value="0"/>
                                     <f:selectItems  value="#{d}"/>
                                 </h:selectOneMenu>
                             </td>
                             <td><h:outputLabel value="Chofer: " /></td>
                             <td>
                                 <h:selectOneMenu class="form-control" id="comboChofer" value="#{d}">
-                                    <f:selectItem itemLabel="------ Chofer -------" />
+                                    <f:selectItem itemLabel="------ Chofer -------" value="0"/>
                                     <f:selectItems  value="#{d}"/>
                                 </h:selectOneMenu>
                             </td>
@@ -101,7 +91,7 @@
                     </table>
                 </div>
               </div>
-            </div>
+            </h:panelGroup>
         </h:form>
     </ui:define>
     <ui:define name="panel-resumen">

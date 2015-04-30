@@ -1,15 +1,16 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,43 +23,41 @@ import javax.persistence.Table;
 public class VehiculoHasChofer  implements java.io.Serializable {
 
 
-     private VehiculoHasChoferId id;
+     private int idVehiculoHasChofer;
      private Chofer chofer;
      private Vehiculo vehiculo;
-     private String observaciones;
+     private Set vehiculoHasChoferHasServicios = new HashSet(0);
 
     public VehiculoHasChofer() {
     }
 
 	
-    public VehiculoHasChofer(VehiculoHasChoferId id, Chofer chofer, Vehiculo vehiculo) {
-        this.id = id;
+    public VehiculoHasChofer(int idVehiculoHasChofer, Chofer chofer, Vehiculo vehiculo) {
+        this.idVehiculoHasChofer = idVehiculoHasChofer;
         this.chofer = chofer;
         this.vehiculo = vehiculo;
     }
-    public VehiculoHasChofer(VehiculoHasChoferId id, Chofer chofer, Vehiculo vehiculo, String observaciones) {
-       this.id = id;
+    public VehiculoHasChofer(int idVehiculoHasChofer, Chofer chofer, Vehiculo vehiculo, Set vehiculoHasChoferHasServicios) {
+       this.idVehiculoHasChofer = idVehiculoHasChofer;
        this.chofer = chofer;
        this.vehiculo = vehiculo;
-       this.observaciones = observaciones;
+       this.vehiculoHasChoferHasServicios = vehiculoHasChoferHasServicios;
     }
    
-     @EmbeddedId
+     @Id 
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="idvehiculo", column=@Column(name="idvehiculo", nullable=false) ), 
-        @AttributeOverride(name="idchofer", column=@Column(name="idchofer", nullable=false) ) } )
-    public VehiculoHasChoferId getId() {
-        return this.id;
+    @Column(name="id_vehiculo_has_chofer", unique=true, nullable=false)
+    public int getIdVehiculoHasChofer() {
+        return this.idVehiculoHasChofer;
     }
     
-    public void setId(VehiculoHasChoferId id) {
-        this.id = id;
+    public void setIdVehiculoHasChofer(int idVehiculoHasChofer) {
+        this.idVehiculoHasChofer = idVehiculoHasChofer;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idchofer", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idchofer", nullable=false)
     public Chofer getChofer() {
         return this.chofer;
     }
@@ -68,7 +67,7 @@ public class VehiculoHasChofer  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idvehiculo", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idvehiculo", nullable=false)
     public Vehiculo getVehiculo() {
         return this.vehiculo;
     }
@@ -77,14 +76,13 @@ public class VehiculoHasChofer  implements java.io.Serializable {
         this.vehiculo = vehiculo;
     }
 
-    
-    @Column(name="observaciones", length=65535)
-    public String getObservaciones() {
-        return this.observaciones;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="vehiculoHasChofer")
+    public Set getVehiculoHasChoferHasServicios() {
+        return this.vehiculoHasChoferHasServicios;
     }
     
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void setVehiculoHasChoferHasServicios(Set vehiculoHasChoferHasServicios) {
+        this.vehiculoHasChoferHasServicios = vehiculoHasChoferHasServicios;
     }
 
 

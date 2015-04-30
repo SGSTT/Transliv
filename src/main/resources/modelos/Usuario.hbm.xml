@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Usuario" table="usuario" catalog="sgstt" optimistic-lock="version">
-        <composite-id name="id" class="modelos.UsuarioId">
-            <key-property name="idusuario" type="int">
-                <column name="idusuario" />
-            </key-property>
-            <key-property name="idRol" type="int">
-                <column name="idRol" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="perfil" class="modelos.Perfil" update="false" insert="false" fetch="select">
+        <id name="idusuario" type="java.lang.Integer">
+            <column name="idusuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perfil" class="modelos.Perfil" fetch="select">
             <column name="idRol" not-null="true" />
         </many-to-one>
         <property name="nick" type="string">

@@ -1,24 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Cobro" table="cobro" catalog="sgstt" optimistic-lock="version">
         <id name="idcobro" type="int">
             <column name="idcobro" />
-            <generator class="foreign">
-                <param name="property">detalleServicio</param>
-            </generator>
+            <generator class="assigned" />
         </id>
-        <one-to-one name="detalleServicio" class="modelos.DetalleServicio" constrained="true"></one-to-one>
-        <property name="descuento" type="java.lang.Byte">
-            <column name="descuento" />
+        <property name="descuento" type="string">
+            <column name="descuento" length="45" />
         </property>
-        <property name="neto" type="java.lang.Float">
-            <column name="neto" precision="12" scale="0" />
+        <property name="adicional" type="string">
+            <column name="adicional" length="45" />
         </property>
-        <property name="total" type="java.lang.Float">
-            <column name="total" precision="12" scale="0" />
+        <property name="neto" type="string">
+            <column name="neto" length="45" />
         </property>
+        <property name="total" type="string">
+            <column name="total" length="45" />
+        </property>
+        <set name="servicioDetalles" table="servicio_detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcobro" not-null="true" />
+            </key>
+            <one-to-many class="modelos.ServicioDetalle" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -1,14 +1,10 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,29 +18,28 @@ public class Tarifa  implements java.io.Serializable {
 
 
      private int idTarifa;
-     private String tipoMoneda;
-     private Integer idVehiculo;
-     private String ruta;
-     private float precio;
-     private Set servicios = new HashSet(0);
+     private int idServicio;
+     private int idTipoVehiculo;
+     private String horas;
+     private String descripcion;
+     private String precio;
 
     public Tarifa() {
     }
 
 	
-    public Tarifa(int idTarifa, String tipoMoneda, String ruta, float precio) {
+    public Tarifa(int idTarifa, int idServicio, int idTipoVehiculo) {
         this.idTarifa = idTarifa;
-        this.tipoMoneda = tipoMoneda;
-        this.ruta = ruta;
-        this.precio = precio;
+        this.idServicio = idServicio;
+        this.idTipoVehiculo = idTipoVehiculo;
     }
-    public Tarifa(int idTarifa, String tipoMoneda, Integer idVehiculo, String ruta, float precio, Set servicios) {
+    public Tarifa(int idTarifa, int idServicio, int idTipoVehiculo, String horas, String descripcion, String precio) {
        this.idTarifa = idTarifa;
-       this.tipoMoneda = tipoMoneda;
-       this.idVehiculo = idVehiculo;
-       this.ruta = ruta;
+       this.idServicio = idServicio;
+       this.idTipoVehiculo = idTipoVehiculo;
+       this.horas = horas;
+       this.descripcion = descripcion;
        this.precio = precio;
-       this.servicios = servicios;
     }
    
      @Id 
@@ -60,52 +55,53 @@ public class Tarifa  implements java.io.Serializable {
     }
 
     
-    @Column(name="tipoMoneda", nullable=false, length=45)
-    public String getTipoMoneda() {
-        return this.tipoMoneda;
+    @Column(name="idServicio", nullable=false)
+    public int getIdServicio() {
+        return this.idServicio;
     }
     
-    public void setTipoMoneda(String tipoMoneda) {
-        this.tipoMoneda = tipoMoneda;
-    }
-
-    
-    @Column(name="idVehiculo")
-    public Integer getIdVehiculo() {
-        return this.idVehiculo;
-    }
-    
-    public void setIdVehiculo(Integer idVehiculo) {
-        this.idVehiculo = idVehiculo;
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
 
     
-    @Column(name="Ruta", nullable=false, length=65535)
-    public String getRuta() {
-        return this.ruta;
+    @Column(name="idTipoVehiculo", nullable=false)
+    public int getIdTipoVehiculo() {
+        return this.idTipoVehiculo;
     }
     
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public void setIdTipoVehiculo(int idTipoVehiculo) {
+        this.idTipoVehiculo = idTipoVehiculo;
     }
 
     
-    @Column(name="Precio", nullable=false, precision=12, scale=0)
-    public float getPrecio() {
+    @Column(name="horas", length=45)
+    public String getHoras() {
+        return this.horas;
+    }
+    
+    public void setHoras(String horas) {
+        this.horas = horas;
+    }
+
+    
+    @Column(name="descripcion", length=45)
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
+    @Column(name="precio", length=45)
+    public String getPrecio() {
         return this.precio;
     }
     
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="tarifa")
-    public Set getServicios() {
-        return this.servicios;
-    }
-    
-    public void setServicios(Set servicios) {
-        this.servicios = servicios;
     }
 
 

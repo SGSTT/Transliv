@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,9 +29,10 @@ public class Cliente  implements java.io.Serializable {
      private Integer idTipoDocumento;
      private Integer numeroDocumento;
      private String direccion;
+     private Integer idEstado;
      private String correo;
+     private String pax;
      private String idUbigeo;
-     private Integer idPax;
      private Set personaNaturals = new HashSet(0);
      private Set agencias = new HashSet(0);
      private Set files = new HashSet(0);
@@ -45,16 +46,17 @@ public class Cliente  implements java.io.Serializable {
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
     }
-    public Cliente(int idCliente, TipoCliente tipoCliente, String nombre, Integer idTipoDocumento, Integer numeroDocumento, String direccion, String correo, String idUbigeo, Integer idPax, Set personaNaturals, Set agencias, Set files, Set personaJuridicas) {
+    public Cliente(int idCliente, TipoCliente tipoCliente, String nombre, Integer idTipoDocumento, Integer numeroDocumento, String direccion, Integer idEstado, String correo, String pax, String idUbigeo, Set personaNaturals, Set agencias, Set files, Set personaJuridicas) {
        this.idCliente = idCliente;
        this.tipoCliente = tipoCliente;
        this.nombre = nombre;
        this.idTipoDocumento = idTipoDocumento;
        this.numeroDocumento = numeroDocumento;
        this.direccion = direccion;
+       this.idEstado = idEstado;
        this.correo = correo;
+       this.pax = pax;
        this.idUbigeo = idUbigeo;
-       this.idPax = idPax;
        this.personaNaturals = personaNaturals;
        this.agencias = agencias;
        this.files = files;
@@ -124,6 +126,16 @@ public class Cliente  implements java.io.Serializable {
     }
 
     
+    @Column(name="idEstado")
+    public Integer getIdEstado() {
+        return this.idEstado;
+    }
+    
+    public void setIdEstado(Integer idEstado) {
+        this.idEstado = idEstado;
+    }
+
+    
     @Column(name="Correo", length=45)
     public String getCorreo() {
         return this.correo;
@@ -134,6 +146,16 @@ public class Cliente  implements java.io.Serializable {
     }
 
     
+    @Column(name="Pax", length=45)
+    public String getPax() {
+        return this.pax;
+    }
+    
+    public void setPax(String pax) {
+        this.pax = pax;
+    }
+
+    
     @Column(name="id_Ubigeo", length=45)
     public String getIdUbigeo() {
         return this.idUbigeo;
@@ -141,16 +163,6 @@ public class Cliente  implements java.io.Serializable {
     
     public void setIdUbigeo(String idUbigeo) {
         this.idUbigeo = idUbigeo;
-    }
-
-    
-    @Column(name="id_Pax")
-    public Integer getIdPax() {
-        return this.idPax;
-    }
-    
-    public void setIdPax(Integer idPax) {
-        this.idPax = idPax;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente_1")

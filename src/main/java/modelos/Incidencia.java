@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -57,7 +57,7 @@ public class Incidencia  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idchofer", nullable=false)
+    @JoinColumn(name="chofer_idchofer", nullable=false)
     public Chofer getChofer() {
         return this.chofer;
     }
@@ -67,7 +67,7 @@ public class Incidencia  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idestado_incidencia", nullable=false)
+    @JoinColumn(name="estado_incidencia_idestado_incidencia", nullable=false)
     public EstadoIncidencia getEstadoIncidencia() {
         return this.estadoIncidencia;
     }
@@ -77,7 +77,7 @@ public class Incidencia  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idtipo_incidencia", nullable=false)
+    @JoinColumn(name="tipo_incidencia_idtipo_incidencia", nullable=false)
     public TipoIncidencia getTipoIncidencia() {
         return this.tipoIncidencia;
     }

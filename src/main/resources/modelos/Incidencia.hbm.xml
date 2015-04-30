@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Incidencia" table="incidencia" catalog="sgstt" optimistic-lock="version">
         <id name="idincidencia" type="int">
@@ -9,13 +9,13 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="chofer" class="modelos.Chofer" fetch="select">
-            <column name="idchofer" not-null="true" />
+            <column name="chofer_idchofer" not-null="true" />
         </many-to-one>
         <many-to-one name="estadoIncidencia" class="modelos.EstadoIncidencia" fetch="select">
-            <column name="idestado_incidencia" not-null="true" />
+            <column name="estado_incidencia_idestado_incidencia" not-null="true" />
         </many-to-one>
         <many-to-one name="tipoIncidencia" class="modelos.TipoIncidencia" fetch="select">
-            <column name="idtipo_incidencia" not-null="true" />
+            <column name="tipo_incidencia_idtipo_incidencia" not-null="true" />
         </many-to-one>
         <property name="descripcion" type="string">
             <column name="descripcion" length="45" />

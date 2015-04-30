@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Chofer" table="chofer" catalog="sgstt" optimistic-lock="version">
         <id name="idchofer" type="java.lang.Integer">
@@ -28,7 +28,7 @@
         </set>
         <set name="incidencias" table="incidencia" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="idchofer" not-null="true" />
+                <column name="chofer_idchofer" not-null="true" />
             </key>
             <one-to-many class="modelos.Incidencia" />
         </set>

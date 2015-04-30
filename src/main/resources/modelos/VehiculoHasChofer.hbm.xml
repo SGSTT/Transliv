@@ -1,25 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.VehiculoHasChofer" table="vehiculo_has_chofer" catalog="sgstt" optimistic-lock="version">
-        <composite-id name="id" class="modelos.VehiculoHasChoferId">
-            <key-property name="idvehiculo" type="int">
-                <column name="idvehiculo" />
-            </key-property>
-            <key-property name="idchofer" type="int">
-                <column name="idchofer" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="chofer" class="modelos.Chofer" update="false" insert="false" fetch="select">
+        <id name="idVehiculoHasChofer" type="int">
+            <column name="id_vehiculo_has_chofer" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="chofer" class="modelos.Chofer" fetch="select">
             <column name="idchofer" not-null="true" />
         </many-to-one>
-        <many-to-one name="vehiculo" class="modelos.Vehiculo" update="false" insert="false" fetch="select">
+        <many-to-one name="vehiculo" class="modelos.Vehiculo" fetch="select">
             <column name="idvehiculo" not-null="true" />
         </many-to-one>
-        <property name="observaciones" type="string">
-            <column name="observaciones" length="65535" />
-        </property>
+        <set name="vehiculoHasChoferHasServicios" table="vehiculo_has_chofer_has_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_vehiculo_has_chofer" not-null="true" />
+            </key>
+            <one-to-many class="modelos.VehiculoHasChoferHasServicio" />
+        </set>
     </class>
 </hibernate-mapping>

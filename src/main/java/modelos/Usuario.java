@@ -1,13 +1,13 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class Usuario  implements java.io.Serializable {
 
 
-     private UsuarioId id;
+     private Integer idusuario;
      private Perfil perfil;
      private String nick;
      private String clave;
@@ -34,16 +34,14 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(UsuarioId id, Perfil perfil, String nick, String nombre, String apellido, byte estado) {
-        this.id = id;
+    public Usuario(Perfil perfil, String nick, String nombre, String apellido, byte estado) {
         this.perfil = perfil;
         this.nick = nick;
         this.nombre = nombre;
         this.apellido = apellido;
         this.estado = estado;
     }
-    public Usuario(UsuarioId id, Perfil perfil, String nick, String clave, String nombre, String apellido, byte estado) {
-       this.id = id;
+    public Usuario(Perfil perfil, String nick, String clave, String nombre, String apellido, byte estado) {
        this.perfil = perfil;
        this.nick = nick;
        this.clave = clave;
@@ -52,22 +50,20 @@ public class Usuario  implements java.io.Serializable {
        this.estado = estado;
     }
    
-     @EmbeddedId
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="idusuario", column=@Column(name="idusuario", nullable=false) ), 
-        @AttributeOverride(name="idRol", column=@Column(name="idRol", nullable=false) ) } )
-    public UsuarioId getId() {
-        return this.id;
+    @Column(name="idusuario", unique=true, nullable=false)
+    public Integer getIdusuario() {
+        return this.idusuario;
     }
     
-    public void setId(UsuarioId id) {
-        this.id = id;
+    public void setIdusuario(Integer idusuario) {
+        this.idusuario = idusuario;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idRol", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idRol", nullable=false)
     public Perfil getPerfil() {
         return this.perfil;
     }

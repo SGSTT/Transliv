@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.ServicioDetalle" table="servicio_detalle" catalog="sgstt" optimistic-lock="version">
+        <id name="idservicioDetalle" type="java.lang.Integer">
+            <column name="idservicio_detalle" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="aerolinea" class="modelos.Aerolinea" fetch="select">
+            <column name="idaerolinea" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cobro" class="modelos.Cobro" fetch="select">
+            <column name="idcobro" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadoServicio" class="modelos.EstadoServicio" fetch="select">
+            <column name="idestado_servicio" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicio" class="modelos.Servicio" fetch="select">
+            <column name="idservicio" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trasladista" class="modelos.Trasladista" fetch="select">
+            <column name="idtrasladista" not-null="true" />
+        </many-to-one>
+        <property name="numPersonas" type="int">
+            <column name="num_personas" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

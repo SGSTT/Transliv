@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-abr-2015 10:53:28 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-abr-2015 23:38:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Vehiculo" table="vehiculo" catalog="sgstt" optimistic-lock="version">
         <id name="idvehiculo" type="java.lang.Integer">
@@ -14,18 +14,15 @@
         <many-to-one name="marca" class="modelos.Marca" fetch="select">
             <column name="idmarca" not-null="true" />
         </many-to-one>
+        <many-to-one name="tipoVehiculo" class="modelos.TipoVehiculo" fetch="select">
+            <column name="`idtipo vehiculo`" not-null="true" />
+        </many-to-one>
         <property name="descripcion" type="string">
             <column name="descripcion" length="45" />
         </property>
         <property name="placa" type="string">
             <column name="placa" length="45" />
         </property>
-        <set name="vehiculoHasServicios" table="vehiculo_has_servicio" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="idvehiculo" not-null="true" />
-            </key>
-            <one-to-many class="modelos.VehiculoHasServicio" />
-        </set>
         <set name="vehiculoHasChofers" table="vehiculo_has_chofer" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idvehiculo" not-null="true" />

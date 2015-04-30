@@ -12,8 +12,8 @@
     <mapping resource="modelos/Ubigeo.hbm.xml"/>
     <mapping resource="modelos/TipoIncidencia.hbm.xml"/>
     <mapping resource="modelos/Marca.hbm.xml"/>
+    <mapping resource="modelos/ServicioDetalle.hbm.xml"/>
     <mapping resource="modelos/TipoCliente.hbm.xml"/>
-    <mapping resource="modelos/VehiculoHasServicio.hbm.xml"/>
     <mapping resource="modelos/Vehiculo.hbm.xml"/>
     <mapping resource="modelos/Modelo.hbm.xml"/>
     <mapping resource="modelos/Vuelo.hbm.xml"/>
@@ -22,13 +22,13 @@
     <mapping resource="modelos/Agencia.hbm.xml"/>
     <mapping resource="modelos/Incidencia.hbm.xml"/>
     <mapping resource="modelos/VehiculoHasChofer.hbm.xml"/>
-    <mapping resource="modelos/DetalleServicio.hbm.xml"/>
     <mapping resource="modelos/EstadoVehiculo.hbm.xml"/>
     <mapping resource="modelos/Permiso.hbm.xml"/>
     <mapping resource="modelos/Cliente.hbm.xml"/>
     <mapping resource="modelos/PersonaJuridica.hbm.xml"/>
     <mapping resource="modelos/Aerolinea.hbm.xml"/>
     <mapping resource="modelos/Perfil.hbm.xml"/>
+    <mapping resource="modelos/TipoVehiculo.hbm.xml"/>
     <mapping resource="modelos/Chofer.hbm.xml"/>
     <mapping resource="modelos/EstadoServicio.hbm.xml"/>
     <mapping resource="modelos/Servicio.hbm.xml"/>
@@ -37,5 +37,6 @@
     <mapping resource="modelos/Trasladista.hbm.xml"/>
     <mapping resource="modelos/Modulo.hbm.xml"/>
     <mapping resource="modelos/TipoServicio.hbm.xml"/>
+    <mapping resource="modelos/VehiculoHasChoferHasServicio.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

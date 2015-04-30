@@ -1,5 +1,5 @@
 package modelos;
-// Generated 29-abr-2015 10:53:26 by Hibernate Tools 4.3.1
+// Generated 29-abr-2015 23:38:15 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -46,7 +46,7 @@ public class File  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idCliente", nullable=false)
+    @JoinColumn(name="Cliente_idCliente", nullable=false)
     public Cliente getCliente() {
         return this.cliente;
     }
@@ -56,7 +56,7 @@ public class File  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idservicio", nullable=false)
+    @JoinColumn(name="servicio_idservicio", nullable=false)
     public Servicio getServicio() {
         return this.servicio;
     }
