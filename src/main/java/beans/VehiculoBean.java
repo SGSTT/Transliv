@@ -14,10 +14,18 @@ import modelos.Vehiculo;
 @RequestScoped
 public class VehiculoBean {
     private List<SelectItem> comboVehiculo;
+    private Vehiculo selectedVehiculo;
     
     public VehiculoBean() {
+        selectedVehiculo = new Vehiculo();
     }
     
+    public Vehiculo getSelectedVehiculo(){
+        return selectedVehiculo;
+    }
+    public void setSelectedVehiculo(Vehiculo selectedVehiculo){
+        this.selectedVehiculo = selectedVehiculo;
+    }
     public List<SelectItem> getComboVehiculo(){
         comboVehiculo = new ArrayList<>();
         VehiculoDao veDao = new VehiculoDao();

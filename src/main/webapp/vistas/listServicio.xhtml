@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../inicio.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="separador">
+        <h:outputLabel style="color: #FFFFFF;
+                       font-size: 15pt;"
+                       value="SERVICIO > Lista ''" />
+    </ui:define>
+
+    <ui:define name="contenido">
+        <h:dataTable id="tablaServicio" value="#{servicioBean.servicios}" var="servicio"
+                     rows="10">
+            <h:column>
+                <h:outputText value="#{servicio.idservicio}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.origen}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.destino}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.fecha}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.hora}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.direccion}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.descripcion}" />
+            </h:column>
+            <h:column>
+                <h:outputText value="#{servicio.tipoServicio.descripcion}" />
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+    
+    <ui:define name="panel-resumen">
+        <div class="panel panel-default panel-danger">
+            <div class="panel-heading ">
+                <h3 style="font-weight: bold;
+                       text-decoration: underline;
+                       color: #ac2925">Resumen</h3>
+            </div>            
+            <h:form id="formRes">
+                <table style="font-size: 12pt;">
+                    <tr>
+                        <td><h:outputText value="Tipo Servicio: " /></td>
+                        <td><h:outputText id="tipo" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Fecha: " /></td>
+                        <td><h:outputText value="" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Hora: " /></td>
+                        <td><h:outputText value="" /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="# de Personas: "  /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>                    
+                    <tr>
+                        <td><h:outputText value="Ruta: "  /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Tipo vehiculo: " /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Chofer: "  /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>                    
+                    <tr>
+                        <td><h:outputText value="Trasladista: "  /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Precio: "  /></td>
+                        <td><h:outputText value=""  /></td>
+                    </tr>
+                </table>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

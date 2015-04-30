@@ -31,6 +31,13 @@ public class ServicioDetalle  implements java.io.Serializable {
      private int numPersonas;
 
     public ServicioDetalle() {
+        idservicioDetalle = 0;
+        aerolinea = new Aerolinea();
+        cobro = new Cobro();
+        estadoServicio = new EstadoServicio();
+        servicio = new Servicio();
+        trasladista = new Trasladista();
+        numPersonas = 0;
     }
 
     public ServicioDetalle(Aerolinea aerolinea, Cobro cobro, EstadoServicio estadoServicio, Servicio servicio, Trasladista trasladista, int numPersonas) {

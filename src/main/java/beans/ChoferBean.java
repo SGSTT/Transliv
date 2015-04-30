@@ -14,10 +14,17 @@ import modelos.Chofer;
 @RequestScoped
 public class ChoferBean {
     private List<SelectItem> comboChofer;
+    private Chofer selectedChofer;
         
     public ChoferBean() {
+        selectedChofer = new Chofer();
     }
-    
+    public Chofer getSelectedChofer(){
+        return selectedChofer;
+    }
+    public void setSelectedChofer(Chofer selectedChofer){
+        this.selectedChofer = selectedChofer;
+    }
     public List<SelectItem> getComboChofer(){
         comboChofer = new ArrayList();
         ChoferDao choDao = new ChoferDao();

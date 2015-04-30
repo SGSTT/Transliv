@@ -29,6 +29,9 @@ public class TipoVehiculo  implements java.io.Serializable {
      private Set vehiculos = new HashSet(0);
 
     public TipoVehiculo() {
+        idtipoVehiculo = 0;
+        nombre = "";
+        capacidad = 0;
     }
 
     public TipoVehiculo(String nombre, Integer capacidad, Set vehiculos) {

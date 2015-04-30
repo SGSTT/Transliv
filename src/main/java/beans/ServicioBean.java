@@ -3,6 +3,8 @@
 package beans;
 
 import daos.ServicioDao;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.event.ActionEvent;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -14,11 +16,17 @@ public class ServicioBean {
     String hora;
     String fecha;
     private Servicio selectedServicio;    
+    private List<Servicio> servicios;
     
     public ServicioBean() {        
         this.selectedServicio = new Servicio();
+        servicios = new ArrayList<>();
     }
-    
+    public List<Servicio> getServicios(){
+        ServicioDao serDao = new ServicioDao();
+        servicios = serDao.listarTodos();
+        return servicios;
+    }
     public Servicio getSelectedServicio(){
         return selectedServicio;
     }
@@ -27,6 +35,11 @@ public class ServicioBean {
     }
     
     public void insertarServicio(ActionEvent e){
-        
+        try{
+            ServicioDao serDao = new ServicioDao();
+            serDao.registrarServicio(selectedServicio);
+        }catch(Exception ex){
+            
+        }
     }
 }

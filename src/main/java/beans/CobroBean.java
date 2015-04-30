@@ -10,11 +10,19 @@ import modelos.Cobro;
 @RequestScoped
 public class CobroBean {
     private Cobro selectedCobro;
-    
+    private int idTipoMoneda;
+     
     public CobroBean() {
         selectedCobro = new Cobro();
+        idTipoMoneda = 0;
     }
     
+    public int getIdTipoMoneda(){
+        return idTipoMoneda;
+    }
+    public void setIdTipoMoneda(int idTipoMoneda){
+        this.idTipoMoneda = idTipoMoneda;
+    }
     public Cobro getSelectedCobro(){
         return selectedCobro;
     }

@@ -28,6 +28,8 @@ public class TipoServicio  implements java.io.Serializable {
      private Set servicios = new HashSet(0);
 
     public TipoServicio() {
+        idtipoServicio = 0;
+        descripcion = "";
     }
 
     public TipoServicio(String descripcion, Set servicios) {

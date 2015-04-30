@@ -6,19 +6,19 @@
     <navigation-rule>    
         <navigation-case>
             <from-outcome>inicio</from-outcome>
-            <to-view-id>/vistas/inicio.xhtml</to-view-id>
+            <to-view-id>/inicio.xhtml</to-view-id>
             <redirect />
         </navigation-case>               
         
         <navignavigation-case>
-            <from-outcome>servicio</from-outcome>
-            <to-view-id>vistas/servicio.xhtml</to-view-id>
+            <from-outcome>regServicio</from-outcome>
+            <to-view-id>faces/vistas/regServicio.xhtml</to-view-id>
             <redirect />
         </navignavigation-case>
         
         <navignavigation-case>
-            <from-outcome>seguridad</from-outcome>
-            <to-view-id>vistas/seguridad.xhtml</to-view-id>
+            <from-outcome>listServicio</from-outcome>
+            <to-view-id>faces/vistas/listServicio.xhtml</to-view-id>
             <redirect />
         </navignavigation-case>
     </navigation-rule>
