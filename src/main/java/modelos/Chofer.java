@@ -32,7 +32,12 @@ public class Chofer  implements java.io.Serializable {
      private Set incidencias = new HashSet(0);
 
     public Chofer() {
-    }
+        idchofer = 0;
+        nombre = "";
+        apellido = "";
+        dni = "";
+        categoria = "";
+    }   
 
     public Chofer(String nombre, String apellido, String dni, String categoria, Set vehiculoHasChofers, Set incidencias) {
        this.nombre = nombre;

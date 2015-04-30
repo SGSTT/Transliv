@@ -29,6 +29,11 @@ public class Cobro  implements java.io.Serializable {
      private Set servicioDetalles = new HashSet(0);
 
     public Cobro() {
+        idcobro = 0;
+        descuento = "";
+        adicional = "";
+        neto = "";
+        total = "";
     }
 
 	

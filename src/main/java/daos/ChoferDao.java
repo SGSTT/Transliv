@@ -4,7 +4,6 @@ package daos;
 
 import java.util.List;
 import modelos.Chofer;
-import modelos.Servicio;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import util.HibernateUtil;

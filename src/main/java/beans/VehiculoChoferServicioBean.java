@@ -11,12 +11,12 @@ import util.Util;
 
 @ManagedBean
 @RequestScoped
-public class VehiculoServicioBean {
+public class VehiculoChoferServicioBean {
     Servicio ser = new Servicio();
     String idVehiculo;
     int idServicio = ser.getIdservicio();
     
-    public VehiculoServicioBean() {
+    public VehiculoChoferServicioBean() {
     }
     
     public void insertarVehiculoServicio(ActionEvent ev){

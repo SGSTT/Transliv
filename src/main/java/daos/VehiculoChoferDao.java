@@ -9,7 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
-public class VehiculoHasChoferDao {
+public class VehiculoChoferDao {
     
     public boolean registrarVehiculoChofer(Vehiculo vehiculo, Chofer chofer){
         boolean aux = false;

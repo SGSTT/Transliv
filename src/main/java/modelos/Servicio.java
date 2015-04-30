@@ -38,6 +38,14 @@ public class Servicio  implements java.io.Serializable {
      private Set files = new HashSet(0);
 
     public Servicio() {
+        idservicio = 0;
+        tipoServicio = new TipoServicio();
+        origen = "";
+        destino = "";
+        fecha = "";
+        hora = "";
+        direccion = "";
+        descripcion = "";
     }
 
 	

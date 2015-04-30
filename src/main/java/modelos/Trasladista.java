@@ -36,6 +36,16 @@ public class Trasladista  implements java.io.Serializable {
      private Set servicioDetalles = new HashSet(0);
 
     public Trasladista() {
+        idtrasladista = 0;
+        nombre = "";
+        apellido = "";
+        dni = "";
+        direccion = "";
+        correo = "";
+        telefono = "";
+        celular = "";
+        estado = Byte.MIN_VALUE;
+        codUbigeo = 0;
     }
 
     public Trasladista(String nombre, String apellido, String dni, String direccion, String correo, String telefono, String celular, Byte estado, Integer codUbigeo, Set servicioDetalles) {

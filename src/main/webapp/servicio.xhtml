@@ -9,7 +9,7 @@
     <ui:define name="separador">
         <h:outputLabel style="color: #FFFFFF;
                        font-size: 15pt;"
-                       value="SERVICIO # '#{servicioBean.selectedServicio.idservicio}'" />
+                       value="SERVICIO # ''" />
     </ui:define>
     <ui:define name="contenido">
         <h:form>
@@ -20,9 +20,9 @@
                         <tr>                            
                             <td><h:outputLabel value="Tipo Servicio: " /></td>
                             <td>
-                                <h:selectOneMenu class="form-control" id="comboTipoServicio" value="#{servicioBean.selectedServicio.tipoServicio.idtipoServicio }">
-                                    <f:selectItem itemLabel="-- Tipo de Servicio --" value="0"/>
-                                    <f:selectItems  value="#{tipoServicioBean.comboTipoServicio}"/>
+                                <h:selectOneMenu class="form-control" id="comboTipoServicio">
+                                    <f:selectItem itemLabel="-- Tipo de Servicio --"/>
+                                    <f:selectItems />
                                 </h:selectOneMenu>
                             </td>
                         </tr>
@@ -32,12 +32,12 @@
                     <table>
                         <tr>
                             <td><h:outputLabel value="Fecha: " /></td>
-                            <td><h:inputText class="form-control" value="#{servicioBean.selectedServicio.fecha}" /></td>
+                            <td><h:inputText class="form-control" /></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><h:outputLabel value="Hora: " /></td>
-                            <td><h:inputText class="form-control" value="#{servicioBean.selectedServicio.hora}" /></td>                            
+                            <td><h:inputText class="form-control" /></td>                            
                         </tr>
                     </table>
                 </div>
@@ -52,16 +52,16 @@
                         <tr>
                             <td><h:outputLabel value="Veh&iacute;culo: " /></td>
                             <td>
-                                <h:selectOneMenu class="form-control" id="comboVehiculo" value="#{d}">
-                                    <f:selectItem itemLabel="----- Vehiculo -----" value="0"/>
-                                    <f:selectItems  value="#{d}"/>
+                                <h:selectOneMenu class="form-control" id="comboVehiculo" >
+                                    <f:selectItem itemLabel="----- Vehiculo -----"/>
+                                    <f:selectItems  value=""/>
                                 </h:selectOneMenu>
                             </td>
                             <td><h:outputLabel value="Chofer: " /></td>
                             <td>
-                                <h:selectOneMenu class="form-control" id="comboChofer" value="#{d}">
-                                    <f:selectItem itemLabel="------ Chofer -------" value="0"/>
-                                    <f:selectItems  value="#{d}"/>
+                                <h:selectOneMenu class="form-control" id="comboChofer">
+                                    <f:selectItem itemLabel="------ Chofer -------"/>
+                                    <f:selectItems  value=""/>
                                 </h:selectOneMenu>
                             </td>
                             <td><h:outputLabel value="Numero Personas: " /></td>
@@ -73,9 +73,9 @@
                     <table>
                         <td><h:outputLabel value="Ruta " /></td>
                         <td>
-                            <h:selectOneMenu class="form-control" id="comboRuta" value="#{d}">
+                            <h:selectOneMenu class="form-control" id="comboRuta">
                                 <f:selectItem itemLabel="------- Ruta -------" />
-                                <f:selectItems  value="#{d}"/>
+                                <f:selectItems  value=""/>
                             </h:selectOneMenu>
                         </td>
                         <td></td>
@@ -83,9 +83,9 @@
                         <td></td>
                         <td><h:outputLabel value="Tipo de Moneda: " /></td>
                         <td>
-                            <h:selectOneMenu class="form-control" id="comboMoneda" value="#{d}">
+                            <h:selectOneMenu class="form-control" id="comboMoneda" >
                                 <f:selectItem itemLabel="- Tipo Moneda --" />
-                                <f:selectItems  value="#{d}"/>
+                                <f:selectItems  value=""/>
                             </h:selectOneMenu>
                         </td>
                     </table>
@@ -105,39 +105,39 @@
                 <table style="font-size: 12pt;">
                     <tr>
                         <td><h:outputText value="Cliente: " /></td>
-                        <td><h:outputText value="#{cliente}" /></td>
+                        <td><h:outputText value="" /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Fecha: " /></td>
-                        <td><h:outputText value="#{fecha}" /></td>
+                        <td><h:outputText value="" /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Hora: " /></td>
-                        <td><h:outputText value="#{hora}" /></td>
+                        <td><h:outputText value="" /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Servicio: "  /></td>
-                        <td><h:outputText value="#{servicio}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>                    
                     <tr>
                         <td><h:outputText value="Ruta: "  /></td>
-                        <td><h:outputText value="#{ruta}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Tipo vehiculo: "  /></td>
-                        <td><h:outputText value="#{vehiculo}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Chofer: "  /></td>
-                        <td><h:outputText value="#{chofer}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>                    
                     <tr>
                         <td><h:outputText value="Lista Req: "  /></td>
-                        <td><h:outputText value="#{requerimientos}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Precio: "  /></td>
-                        <td><h:outputText value="#{precio} #{tipoMoneda}"  /></td>
+                        <td><h:outputText value=""  /></td>
                     </tr>
                 </table>
             </h:form>

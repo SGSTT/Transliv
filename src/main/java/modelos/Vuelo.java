@@ -29,6 +29,11 @@ public class Vuelo  implements java.io.Serializable {
      private String horario;
 
     public Vuelo() {
+        idvuelo = 0;
+        aerolinea = new Aerolinea();
+        origen = "";
+        destino = "";
+        horario = "";
     }
 
 	

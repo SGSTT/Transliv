@@ -34,6 +34,11 @@ public class Vehiculo  implements java.io.Serializable {
      private Set vehiculoHasChofers = new HashSet(0);
 
     public Vehiculo() {
+        idvehiculo =  0;
+        estadoVehiculo = new EstadoVehiculo();
+        marca = new Marca();
+        tipoVehiculo = new TipoVehiculo();
+        placa = "";
     }
 
 	

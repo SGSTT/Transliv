@@ -28,6 +28,9 @@ public class VehiculoHasChoferHasServicio  implements java.io.Serializable {
      private String observaciones;
 
     public VehiculoHasChoferHasServicio() {
+        servicio = new Servicio();
+        vehiculoHasChofer = new VehiculoHasChofer();
+        observaciones = "";
     }
 
 	

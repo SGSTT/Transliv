@@ -39,6 +39,16 @@ public class Cliente  implements java.io.Serializable {
      private Set personaJuridicas = new HashSet(0);
 
     public Cliente() {
+        idCliente = 0;
+        tipoCliente = new TipoCliente();
+        nombre = "";
+        idTipoDocumento = 0;
+        numeroDocumento = 0;
+        direccion = "";
+        idEstado = 0;
+        correo = "";
+        pax = "";
+        idUbigeo = "0";
     }
 
 	

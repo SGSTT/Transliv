@@ -29,6 +29,8 @@ public class Aerolinea  implements java.io.Serializable {
      private Set vuelos = new HashSet(0);
 
     public Aerolinea() {
+        idaerolinea = 0;
+        descripcion = "";
     }
 
     public Aerolinea(String descripcion, Set servicioDetalles, Set vuelos) {

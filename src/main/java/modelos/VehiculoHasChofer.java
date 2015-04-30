@@ -29,6 +29,9 @@ public class VehiculoHasChofer  implements java.io.Serializable {
      private Set vehiculoHasChoferHasServicios = new HashSet(0);
 
     public VehiculoHasChofer() {
+        idVehiculoHasChofer = 0;
+        chofer = new Chofer();
+        vehiculo = new Vehiculo();
     }
 
 	
