@@ -28,6 +28,8 @@ public class TipoIncidencia  implements java.io.Serializable {
      private Set incidencias = new HashSet(0);
 
     public TipoIncidencia() {
+        idtipoIncidencia = 0;
+        descripcion = "";        
     }
 
     public TipoIncidencia(String descripcion, Set incidencias) {

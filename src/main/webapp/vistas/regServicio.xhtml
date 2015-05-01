@@ -9,11 +9,12 @@
     <ui:define name="separador">
         <h:outputLabel style="color: #FFFFFF;
                        font-size: 15pt;"
-                       value="SERVICIO # ''" />
+                       value="SERVICIO" />
     </ui:define>
     <ui:define name="contenido">
-        <p:scrollPanel mode="native" style="width: 1000px; height: 450px; 
-                       background-color: #F3F3F3; border-style: none">
+        <p:scrollPanel mode="native" style="width: 1000px; height: 450px;
+                       background-color: #F3F3F3; border-style: none;
+                       padding: 5px 0px 5px 0px">
         <h:form id="form1">
             <p:messages id="mensaje" showDetail="true"/>
             <div class="panel panel-default contenedor">
@@ -25,7 +26,10 @@
                                 <h:selectOneMenu class="form-control" id="comboTipoServicio"
                                                  value="#{servicioBean.selectedServicio.tipoServicio.idtipoServicio}">
                                     <f:selectItem itemLabel="-- Tipo de Servicio --" itemValue="0"/>
-                                    <f:selectItems value="#{tipoServicioBean.comboTipoServicio}"/>
+                                    <f:selectItem itemLabel="Traslado" itemValue="1"/>
+                                    <f:selectItem itemLabel="Excursion" itemValue="2"/>
+                                    <f:selectItem itemLabel="Viaje" itemValue="3"/>
+                                    <f:selectItems/>
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -46,7 +50,7 @@
                         <tr>
                             <td><h:outputLabel value="Numero Personas: " /></td>
                             <td><h:inputText class="form-control" size="2" 
-                                             value="#{detalleServicioBean.selectedDetalle.numPersonas}"/>
+                                             />
                             </td>
                             <td></td>
                             <td></td>
@@ -55,7 +59,8 @@
                                 <h:selectOneMenu class="form-control" id="comboVehiculo"
                                                  value="#{vehiculoBean.selectedVehiculo.idvehiculo}">
                                     <f:selectItem itemLabel="----- Vehiculo -----"/>
-                                    <f:selectItems value="#{vehiculoBean.comboVehiculo}" />
+                                    <f:selectItem itemLabel="CSI-A43" itemValue="1"/>
+                                    <f:selectItem itemLabel="ESP-277" itemValue="2"/>
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -65,11 +70,16 @@
                                 <h:selectOneMenu class="form-control" id="comboChofer"
                                                  value="#{choferBean.selectedChofer.idchofer}">
                                     <f:selectItem itemLabel="------ Chofer -------" itemValue="0"/>
-                                    <f:selectItems value="#{choferBean.comboChofer}" />
+                                    <f:selectItem itemLabel="Eduardo" itemValue="1"/>
+                                    <f:selectItem itemLabel="Paul" itemValue="2"/>
+                                    <f:selectItem itemLabel="Ivonne" itemValue="3"/>
+                                    <f:selectItem itemLabel="Claudio" itemValue="4"/>
+                                    <f:selectItem itemLabel="Fernando" itemValue="5"/>
+                                    <f:selectItem itemLabel="Maximo" itemValue="6"/>
                                 </h:selectOneMenu>
                             </td>                            
                         </tr>
-                    </table>    
+                    </table>   
                 </div>
                 <div>
                     <table>
@@ -101,7 +111,8 @@
                                 <h:selectOneMenu class="form-control" id="comboTrasladista">
                                                  
                                     <f:selectItem itemLabel="--- Trasladista ---" itemValue="0"/>
-                                    <f:selectItems value="#{trasladistaBean.comboTrasladista}"/>
+                                    <f:selectItem itemLabel="Julio Cesar" itemValue="1"/>
+                                    <f:selectItem itemLabel="Ramon" itemValue="2"/>
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -112,7 +123,7 @@
                                 <h:selectOneMenu class="form-control" id="comboAerolinea"
                                                  value="#{detalleServicioBean.selectedDetalle.aerolinea.idaerolinea}">
                                     <f:selectItem itemLabel="---- Aerolinea ----" itemValue="0"/>
-                                    <f:selectItems value="#{aerolineaBean.comboAerolinea}"/>
+                                    <f:selectItem itemLabel="Taka" itemValue="1"/>
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -155,9 +166,12 @@
                     </div>
                 </div>
             </h:panelGroup>
-            <h:commandButton actionListener="#{servicioBean.insertarServicio(e)}"
-                                                 class="btn btn-danger" value="registrarServicio"/>
-            <h:commandButton action="" class="btn btn-info" value="Ver Servicios"/>
+            <div style="text-align: right;">
+                <h:commandButton actionListener="#{servicioBean.insertarServicio(e)}"
+                                                 class="btn btn-danger" value="Registrar Servicio"/>
+                <span />
+                <h:commandButton action="listarServicio" class="btn btn-primary" value="Ver Servicios"/>
+            </div>
         </h:form>
         </p:scrollPanel>
     </ui:define>

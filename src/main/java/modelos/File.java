@@ -26,6 +26,8 @@ public class File  implements java.io.Serializable {
 
     public File() {
         idFile = 0;
+        cliente = new Cliente();
+        servicio = new Servicio();
     }
 
     public File(int idFile, Cliente cliente, Servicio servicio) {

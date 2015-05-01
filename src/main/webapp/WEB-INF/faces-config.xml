@@ -1,25 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<faces-config version="2.2"
+<faces-config version="2.1"
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-    <navigation-rule>    
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">    
+    <navigation-rule>        
         <navigation-case>
-            <from-outcome>inicio</from-outcome>
-            <to-view-id>/inicio.xhtml</to-view-id>
-            <redirect />
+            <from-action>registrarServicio</from-action>
+            <to-view-id>/vistas/regServicio.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>               
         
-        <navignavigation-case>
-            <from-outcome>regServicio</from-outcome>
-            <to-view-id>faces/vistas/regServicio.xhtml</to-view-id>
-            <redirect />
-        </navignavigation-case>
-        
-        <navignavigation-case>
-            <from-outcome>listServicio</from-outcome>
-            <to-view-id>faces/vistas/listServicio.xhtml</to-view-id>
-            <redirect />
-        </navignavigation-case>
+        <navigation-case>
+            <from-action>listarServicio</from-action>
+            <to-view-id>/vistas/listServicio.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

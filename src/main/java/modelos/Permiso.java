@@ -27,6 +27,9 @@ public class Permiso  implements java.io.Serializable {
      private Perfil perfil;
 
     public Permiso() {
+        id = new PermisoId();
+        modulo = new Modulo();
+        perfil = new Perfil();
     }
 
     public Permiso(PermisoId id, Modulo modulo, Perfil perfil) {

@@ -26,6 +26,8 @@ public class PersonaJuridica  implements java.io.Serializable {
      private Cliente cliente;
 
     public PersonaJuridica() {
+        idcliente = 0;
+        cliente = new Cliente();
     }
 
     public PersonaJuridica(Cliente cliente) {

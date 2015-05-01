@@ -27,6 +27,9 @@ public class Modelo  implements java.io.Serializable {
      private String nombreModelo;
 
     public Modelo() {
+        idmodelo = 0;
+        marca = new Marca();
+        nombreModelo = "";
     }
 
 	

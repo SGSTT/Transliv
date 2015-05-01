@@ -2,10 +2,20 @@
  */
 package util;
 
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 public class Util {
+        public static ResourceBundle RESOURCE_BUNDLE = ResourceBundle
+            .getBundle("config");
+    public static final Logger LOG = Logger.getLogger("APP");
+    public static final String PATTERN_LETRAS = "[^A-Za-zñÑáéíóúüÁÉÍÓÚ \\- ]";
+    public static final String PATTERN_ALFA_NUMERICO = "[^A-Za-z0-9]";
+    public static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    public static final String PATTERN_NUMEROS = ".*[^0-9].*";
     
     public static boolean hayNumeros(String texto){
         boolean aux = false;

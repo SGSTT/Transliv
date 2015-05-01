@@ -30,6 +30,10 @@ public class Modulo  implements java.io.Serializable {
      private Set permisos = new HashSet(0);
 
     public Modulo() {
+        idmodulo = 0;
+        nombre = "";
+        url = "";
+        estado = 0;
     }
 
 	

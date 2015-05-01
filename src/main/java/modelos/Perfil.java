@@ -30,6 +30,9 @@ public class Perfil  implements java.io.Serializable {
      private Set permisos = new HashSet(0);
 
     public Perfil() {
+        id = 0;
+        nombre = "";
+        estado = 0;        
     }
 
 	

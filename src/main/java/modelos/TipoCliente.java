@@ -26,6 +26,8 @@ public class TipoCliente  implements java.io.Serializable {
      private Set clientes = new HashSet(0);
 
     public TipoCliente() {
+        idTipoCliente = 0;
+        tipoCliente = "";
     }
 
 	

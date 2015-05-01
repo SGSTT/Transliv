@@ -16,6 +16,8 @@ public class VehiculoHasChoferHasServicioId  implements java.io.Serializable {
      private int idservicio;
 
     public VehiculoHasChoferHasServicioId() {
+        idVehiculoHasChofer = 0;
+        idservicio = 0;
     }
 
     public VehiculoHasChoferHasServicioId(int idVehiculoHasChofer, int idservicio) {

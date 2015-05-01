@@ -28,6 +28,13 @@ public class Ubigeo  implements java.io.Serializable {
      private String dst;
 
     public Ubigeo() {
+        this.cdUbigeo = 0;
+       this.codDep = "";
+       this.codProv = "";
+       this.codDst = "";
+       this.dep = "";
+       this.prov = "";
+       this.dst = "";
     }
 
     public Ubigeo(String codDep, String codProv, String codDst, String dep, String prov, String dst) {

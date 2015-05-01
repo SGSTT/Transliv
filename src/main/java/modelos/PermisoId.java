@@ -17,6 +17,9 @@ public class PermisoId  implements java.io.Serializable {
      private int moduloIdmodulo;
 
     public PermisoId() {
+        idpermiso = 0;
+        perfilIdperfil = 0;
+        moduloIdmodulo = 0;
     }
 
     public PermisoId(int idpermiso, int perfilIdperfil, int moduloIdmodulo) {

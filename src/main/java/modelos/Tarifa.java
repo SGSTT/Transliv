@@ -25,6 +25,13 @@ public class Tarifa  implements java.io.Serializable {
      private String precio;
 
     public Tarifa() {
+        idTarifa = 0;
+        idServicio = 0;
+        idTipoVehiculo = 0;
+        horas = "";
+        descripcion = "";
+        precio = "";
+                
     }
 
 	

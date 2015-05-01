@@ -44,7 +44,7 @@ public class Trasladista  implements java.io.Serializable {
         correo = "";
         telefono = "";
         celular = "";
-        estado = Byte.MIN_VALUE;
+        estado = 0;
         codUbigeo = 0;
     }
 

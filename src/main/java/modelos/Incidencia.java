@@ -27,6 +27,11 @@ public class Incidencia  implements java.io.Serializable {
      private String descripcion;
 
     public Incidencia() {
+        idincidencia = 0;
+        chofer = new Chofer();
+        estadoIncidencia = new EstadoIncidencia();
+        tipoIncidencia = new TipoIncidencia();
+        descripcion = "";
     }
 
 	

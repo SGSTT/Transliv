@@ -31,6 +31,13 @@ public class Usuario  implements java.io.Serializable {
      private byte estado;
 
     public Usuario() {
+        idusuario = 0;
+        perfil = new Perfil();
+        nick = "";
+        clave = "";
+        nombre =  "";
+        apellido = "";
+        estado = 0;
     }
 
 	

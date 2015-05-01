@@ -26,6 +26,8 @@ public class EstadoVehiculo  implements java.io.Serializable {
      private Set vehiculos = new HashSet(0);
 
     public EstadoVehiculo() {
+        idestadoVehiculo = 0;
+        descripcion = "";
     }
 
 	

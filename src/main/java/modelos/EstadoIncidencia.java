@@ -28,6 +28,8 @@ public class EstadoIncidencia  implements java.io.Serializable {
      private Set incidencias = new HashSet(0);
 
     public EstadoIncidencia() {
+        idestadoIncidencia = 0;
+        descripcion = "";
     }
 
     public EstadoIncidencia(String descripcion, Set incidencias) {

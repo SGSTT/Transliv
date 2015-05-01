@@ -28,6 +28,8 @@ public class EstadoServicio  implements java.io.Serializable {
      private Set servicioDetalles = new HashSet(0);
 
     public EstadoServicio() {
+        idestadoServicio = 0;
+        descripcion = "";
     }
 
     public EstadoServicio(String descripcion, Set servicioDetalles) {

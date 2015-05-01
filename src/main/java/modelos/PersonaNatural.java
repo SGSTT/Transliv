@@ -25,6 +25,9 @@ public class PersonaNatural  implements java.io.Serializable {
      private int apellidos;
 
     public PersonaNatural() {
+        cliente = "";
+        cliente_1 = new Cliente();
+        apellidos = 1;
     }
 
     public PersonaNatural(String cliente, Cliente cliente_1, int apellidos) {

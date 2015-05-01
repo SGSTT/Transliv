@@ -24,6 +24,8 @@ public class Agencia  implements java.io.Serializable {
      private Cliente cliente;
 
     public Agencia() {
+        idagencia = 0;
+        cliente = new Cliente();
     }
 
     public Agencia(int idagencia, Cliente cliente) {
