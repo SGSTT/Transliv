@@ -25,11 +25,8 @@
                             <td>
                                 <h:selectOneMenu class="form-control" id="comboTipoServicio"
                                                  value="#{servicioBean.selectedServicio.tipoServicio.idtipoServicio}">
-                                    <f:selectItem itemLabel="-- Tipo de Servicio --" itemValue="0"/>
-                                    <f:selectItem itemLabel="Traslado" itemValue="1"/>
-                                    <f:selectItem itemLabel="Excursion" itemValue="2"/>
-                                    <f:selectItem itemLabel="Viaje" itemValue="3"/>
-                                    <f:selectItems/>
+                                    <f:selectItem itemLabel="-- Tipo de Servicio --" itemValue="0"/>          
+                                    <f:selectItems value="#{tipoServicioBean.comboTipoServicio}"/>
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -59,8 +56,7 @@
                                 <h:selectOneMenu class="form-control" id="comboVehiculo"
                                                  value="#{vehiculoBean.selectedVehiculo.idvehiculo}">
                                     <f:selectItem itemLabel="----- Vehiculo -----"/>
-                                    <f:selectItem itemLabel="CSI-A43" itemValue="1"/>
-                                    <f:selectItem itemLabel="ESP-277" itemValue="2"/>
+                                    <f:selectItems value="#{vehiculoBean.comboVehiculo}" />
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -70,12 +66,7 @@
                                 <h:selectOneMenu class="form-control" id="comboChofer"
                                                  value="#{choferBean.selectedChofer.idchofer}">
                                     <f:selectItem itemLabel="------ Chofer -------" itemValue="0"/>
-                                    <f:selectItem itemLabel="Eduardo" itemValue="1"/>
-                                    <f:selectItem itemLabel="Paul" itemValue="2"/>
-                                    <f:selectItem itemLabel="Ivonne" itemValue="3"/>
-                                    <f:selectItem itemLabel="Claudio" itemValue="4"/>
-                                    <f:selectItem itemLabel="Fernando" itemValue="5"/>
-                                    <f:selectItem itemLabel="Maximo" itemValue="6"/>
+                                    <f:selectItems value="#{choferBean.comboChofer}"/>
                                 </h:selectOneMenu>
                             </td>                            
                         </tr>
@@ -111,8 +102,7 @@
                                 <h:selectOneMenu class="form-control" id="comboTrasladista">
                                                  
                                     <f:selectItem itemLabel="--- Trasladista ---" itemValue="0"/>
-                                    <f:selectItem itemLabel="Julio Cesar" itemValue="1"/>
-                                    <f:selectItem itemLabel="Ramon" itemValue="2"/>
+                                    <f:selectItems value="#{trasladistaBean.comboTrasladista}" />
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
@@ -123,7 +113,7 @@
                                 <h:selectOneMenu class="form-control" id="comboAerolinea"
                                                  value="#{detalleServicioBean.selectedDetalle.aerolinea.idaerolinea}">
                                     <f:selectItem itemLabel="---- Aerolinea ----" itemValue="0"/>
-                                    <f:selectItem itemLabel="Taka" itemValue="1"/>
+                                    <f:selectItems value="#{aerolineaBean.comboAerolinea}" />
                                 </h:selectOneMenu>
                             </td>
                             <td></td>
